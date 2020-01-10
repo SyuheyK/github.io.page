@@ -1,10 +1,7 @@
 baseURL: https://syuheyk.github.io
-# languageCode: en-us
+languageCode: jp
 title: SyuheyK
 theme: vanilla-bootstrap-hugo-theme
-# googleAnalytics: UA-123456789-1
-# 利用言語を英語から日本語に変更
-languageCode: jp
 
 taxonomies:
   tag: tags
