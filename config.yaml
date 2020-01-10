@@ -1,4 +1,4 @@
-baseURL: https://example.com
+baseURL: https://esyuheyk.github.io
 # languageCode: en-us
 title: SyuheyK
 theme: vanilla-bootstrap-hugo-theme
@@ -19,7 +19,7 @@ menu:
   - name: About
     pre: meh
     url: /about/
-    weight: 1
+    weight: 3
   - name: Notes
     pre: clipboard
     url: /posts/
@@ -27,11 +27,12 @@ menu:
   - name: RSS
     pre: rss
     url: /index.xml
-    weight: 3
-#  - name: MensWear 
-#    pre: 
-#    url: /tags/
-#    weight: 3
+    weight: 4
+  - name: Home
+    pre: coffee
+    url: /
+    weight: 1
+
 
 params:
   includeBootstrapJs: false
