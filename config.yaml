@@ -16,7 +16,7 @@ menu:
   - name: About
     pre: meh
     url: /about/
-    weight: 3
+    weight: 1
   - name: Notes
     pre: clipboard
     url: /posts/
@@ -24,12 +24,7 @@ menu:
   - name: RSS
     pre: rss
     url: /index.xml
-    weight: 4
-  - name: Home
-    pre: coffee
-    url: /
-    weight: 1
-
+    weight: 3
 
 params:
   includeBootstrapJs: false

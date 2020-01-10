@@ -2,7 +2,7 @@
 title: "これから書く内容"
 #tags: ["TeX", "行列", "複素解析"]
 date: 2020-01-10T18:27:38+09:00
-draft: true
+draft: false
 ---
 
 # 数学
