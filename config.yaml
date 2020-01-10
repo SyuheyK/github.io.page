@@ -1,0 +1,74 @@
+baseURL: https://example.com
+# languageCode: en-us
+title: SyuheyK
+theme: vanilla-bootstrap-hugo-theme
+# googleAnalytics: UA-123456789-1
+# 利用言語を英語から日本語に変更
+languageCode: jp
+
+taxonomies:
+  tag: tags
+
+permalinks:
+  post: /:filename/
+
+# See https://feathericons.com/
+# The value of pre is the icon name
+menu:
+  nav:
+  - name: About
+    pre: meh
+    url: /about/
+    weight: 1
+  - name: Notes
+    pre: clipboard
+    url: /posts/
+    weight: 2
+  - name: RSS
+    pre: rss
+    url: /index.xml
+    weight: 3
+#  - name: MensWear 
+#    pre: 
+#    url: /tags/
+#    weight: 3
+
+params:
+  includeBootstrapJs: false
+  showActiveNav: true
+  containerMaxWidth: 800px
+  dateFormat: 2006 Jan 2
+  homeText: もろもろを書きためる用
+  footerText: Made with [Hugo](https://gohugo.io/) & [Vanilla](https://github.com/zwbetz-gh/vanilla-bootstrap-hugo-theme)
+  hideFooter: false
+
+markup:
+  defaultMarkdownHandler: goldmark
+  goldmark:
+    extensions:
+      definitionList: true
+      footnote: true
+      linkify: true
+      strikethrough: true
+      table: true
+      taskList: true
+      typographer: true
+    parser:
+      attribute: true
+      autoHeadingID: true
+    renderer:
+      hardWraps: false
+      unsafe: true
+      xHTML: false
+  highlight:
+    codeFences: true
+    hl_Lines: ""
+    lineNoStart: 1
+    lineNos: false
+    lineNumbersInTable: true
+    noClasses: true
+    style: monokai
+    tabWidth: 4
+  tableOfContents:
+    endLevel: 6
+    startLevel: 2
