@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>test on Note置き場</title>
+    <link>https://syuheyk.github.io/tags/test/</link>
+    <description>Recent content in test on Note置き場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>jp</language>
+    <lastBuildDate>Thu, 16 Jan 2020 10:00:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://syuheyk.github.io/tags/test/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>test</title>
+      <link>https://syuheyk.github.io/posts/200130test/</link>
+      <pubDate>Thu, 16 Jan 2020 10:00:00 +0900</pubDate>
+      
+      <guid>https://syuheyk.github.io/posts/200130test/</guid>
+      <description>test</description>
+    </item>
+    
+  </channel>
+</rss>
