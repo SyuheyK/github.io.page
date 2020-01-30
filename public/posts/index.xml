@@ -6,19 +6,10 @@
     <description>Recent content in Notes on Note置き場</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>jp</language>
-    <lastBuildDate>Thu, 30 Jan 2020 10:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 27 Jan 2020 10:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://syuheyk.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>テスト</title>
-      <link>https://syuheyk.github.io/posts/200130test/</link>
-      <pubDate>Thu, 30 Jan 2020 10:00:00 +0900</pubDate>
-      
-      <guid>https://syuheyk.github.io/posts/200130test/</guid>
-      <description>テストです</description>
-    </item>
     
     <item>
       <title>Mecabの使い方のまとめ</title>
