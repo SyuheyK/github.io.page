@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TeX on Note置き場</title>
+    <link>https://syuheyk.github.io/tags/TeX/</link>
+    <description>Recent content in TeX on Note置き場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>jp</language>
+    <lastBuildDate>Fri, 10 Jan 2020 18:27:38 +0900</lastBuildDate>
+    
+	<atom:link href="https://syuheyk.github.io/tags/TeX/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mathjaxのテスト</title>
+      <link>https://syuheyk.github.io/posts/200113mathjax-test/</link>
+      <pubDate>Fri, 10 Jan 2020 18:27:38 +0900</pubDate>
+      
+      <guid>https://syuheyk.github.io/posts/200113mathjax-test/</guid>
+      <description>テスト投稿がてら，LaTeX表現ができるか確認
+ $$ \begin{bmatrix} a &amp; b \\ c &amp; d \\ \end{bmatrix} $$ $$ f(z)=\oint_{|\zeta-c|=R}\frac{f(\zeta)}{\zeta-z}\frac{d\zeta}{2\pi i},\text{ }(|z-c|注意事項  一段落で表示可能な数式数に限界があるようなので，あまり本文が長くならない様工夫する必要あり． 数式行は改行して入れる．  参照 https://maku77.github.io/hugo/settings/math-jax.html</description>
+    </item>
+    
+  </channel>
+</rss>

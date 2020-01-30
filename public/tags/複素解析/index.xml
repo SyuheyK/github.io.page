@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>複素解析 on Note置き場</title>
+    <link>https://syuheyk.github.io/tags/%E8%A4%87%E7%B4%A0%E8%A7%A3%E6%9E%90/</link>
+    <description>Recent content in 複素解析 on Note置き場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>jp</language>
+    <lastBuildDate>Wed, 15 Jan 2020 10:00:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://syuheyk.github.io/tags/%E8%A4%87%E7%B4%A0%E8%A7%A3%E6%9E%90/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>留数定理までの複素関数論を計算で(&#43;特性関数の計算)</title>
+      <link>https://syuheyk.github.io/posts/200115complex1/</link>
+      <pubDate>Wed, 15 Jan 2020 10:00:00 +0900</pubDate>
+      
+      <guid>https://syuheyk.github.io/posts/200115complex1/</guid>
+      <description>神保道夫「複素関数入門」を元に， 留数定理に至る複素関数論の内容を計算部分だけピックアップし， 確率論における確率分布(標準正規分布，Gamma分布，Cauchy分布)の特性関数を求めました．
+目次  微分の定義 複素関数の微分とCauchy-Riemannの方程式 Cauchy-Riemannの方程式の簡便な表示 Cauchyの積分定理  Cauchyの積分定理の適用例 Cauchyの積分定理を使った特性関数の計算(確率論)   Cauchyの積分公式 留数定理  
+微分の定義 まず，確認のため実数値関数$u$の$1$変数の微分の定義を改めて書き下す． $u(x)$が点$x_0$で微分可能のとき，高位の微分小をランダウの記号$o$を用いて， $$\begin{align} u(x)=u(x_0)+a(x-x_0)+o(|x-x_0|),\text{ }(x\rightarrow0) \end{align}$$ と表すことができる．ここで$a$は $$\begin{align} \lim_{h\rightarrow0}\frac{u(x_0+h)-u(x_0)}{h}=a \end{align}$$ で定まる微分係数であり，これが$du/dx(x_0)$と表されるものである． 同様に，$2$変数の実数値関数$u(x,y)$が点$(x_0,y_0)$で微分可能のとき， $$\begin{align} u(x,y)=u(x_0,y_0)+a(x-x_0)+b(y-y_0)+o(\sqrt{(x-x_0)^2+(y-y_0)^2}) \end{align}$$ と表せるとき，偏微分係数$a$と$b$をそれぞれ $$\begin{align} a=\frac{\partial u}{\partial x}(x_0,y_0),\text{ }b=\frac{\partial u}{\partial y}(x_0,y_0) \end{align}$$ と表すことができる．
+
+複素関数の微分とCauchy-Riemannの方程式 複素数を変数にとる複素数値関数$f(z)$の$z_0=z_0+iy_0$において微分可能であるとき， $$\begin{align} f(z)=f(z_0)+\alpha(z-z_0)+o(|z-z_0|), \alpha=\frac{df}{dz}(z_0) \end{align}$$ と表す．$z$,$f$,$\alpha$がそれぞれ， $$\begin{align} z=x+iy,f(z)=u(x,y)+iv(x,y),\alpha=a+ib \end{align}$$ と表されるとき，上記の$2$変数の場合の微分の定義を用いて次式が成り立つ． $$\begin{align} f(z)&amp;=u(x,y)+iv(x,y)\\ &amp;=u(x_0,y_0)+iv(x_0,y_0)+(a+ib)(x+iy-x_0-iy_0)+o(\sqrt{(x-x_0)^2+(y-y_0)^2})\\ &amp;=u(x_0,y_0)+a(x-x_0)-b(y-y_0)+i\left\{v(x_0,y_0)+b(x-x_0)+a(y-y_0)\right\}+o(\sqrt{(x-x_0)^2+(y-y_0)^2}) \end{align}$$ 実部，虚部をそれぞれ抜き出せば $$\begin{align} u(x,y)=u(x_0,y_0)+a(x-x_0)-b(y-y_0)+o(\sqrt{(x-x_0)^2+(y-y_0)^2})\\ v(x,y)=v(x_0,y_0)+b(x-x_0)+a(y-y_0)+o(\sqrt{(x-x_0)^2+(y-y_0)^2}) \end{align}$$ が得られ，各点における偏微分係数に $$\begin{align} \frac{\partial u}{\partial x}(x,y)=\frac{\partial v}{\partial y}(x,y),\text{ }\frac{\partial u}{\partial y}(x,y)=-\frac{\partial v}{\partial x}(x,y) \end{align}$$ と言う関係が成り立つことがわかり，これはCauchy-Riemannの方程式と呼ばれる．</description>
+    </item>
+    
+  </channel>
+</rss>

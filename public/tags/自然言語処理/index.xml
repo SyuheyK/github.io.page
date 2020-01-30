@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>自然言語処理 on Note置き場</title>
+    <link>https://syuheyk.github.io/tags/%E8%87%AA%E7%84%B6%E8%A8%80%E8%AA%9E%E5%87%A6%E7%90%86/</link>
+    <description>Recent content in 自然言語処理 on Note置き場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>jp</language>
+    <lastBuildDate>Mon, 27 Jan 2020 10:00:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://syuheyk.github.io/tags/%E8%87%AA%E7%84%B6%E8%A8%80%E8%AA%9E%E5%87%A6%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mecabの使い方のまとめ</title>
+      <link>https://syuheyk.github.io/posts/200127mecab-intro/</link>
+      <pubDate>Mon, 27 Jan 2020 10:00:00 +0900</pubDate>
+      
+      <guid>https://syuheyk.github.io/posts/200127mecab-intro/</guid>
+      <description>インストール方法 以下を参照．
+設定ファイルの場所 環境によって異なるので注意．
+https://ichibariki.hatenablog.com/entry/2017/01/09/150542 https://obel.hatenablog.jp/entry/20170218/1487418388
+ユーザ辞書の追加 https://m0t0k1ch1st0ry.com/blog/2016/06/04/mecab/
+/usr/local/Cellar/mecab/0.996/libexec/mecab/mecab-dict-index \ -d /usr/local/lib/mecab/dic/mecab-ipadic-neologd \ -u /usr/local/lib/mecab/dic/userdic/user_dic.dic \ -f utf-8 \ -t utf-8 \ ./user_dic.csv オプションの説明は以下のとおり． |コマンド|内容| |:&amp;mdash;:|&amp;mdash;| |-d DIR:| システム辞書があるディレクトリ| |-u FILE:| FILE というユーザファイルを作成| |-f charset:| CSVの文字コード| |-t charset: |バイナリ辞書の文字コード|
+処理結果が reading ./tailoring_dic.csv ... 1 emitting double-array: 100% |###########################################| done! と， done! の文字が出力されればOK． その後， /usr/local/etc/macabrc に以下の1行を追加し，ユーザ辞書の設定が読まれる様にする． userdic = /usr/local/lib/mecab/dic/userdic/user_dic.dic 
+pythonからのユーザ辞書の利用方法 Taggarのオプションに -u でユーザ辞書のpathを追加する． import MeCab mecab = MeCab.Tagger (&amp;#39;-d /usr/local/lib/mecab/dic/mecab-ipadic-neologd -u /usr/local/lib/mecab/dic/userdic/user_dic.</description>
+    </item>
+    
+  </channel>
+</rss>

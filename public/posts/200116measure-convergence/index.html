@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+  測度論の収束定理 &ndash; Note置き場
+
+    </title>
+    
+    
+    <meta name="description" property="og:description" content="測度論の収束定理で有名な以下の三定理について，一つが成り立てば他二つも成り立つことを示します． その後，Lebesgueの収束定理を使った計算例を紹介します．
+三定理のステートメント 以下いずれも測度空間$(X,\mathcal{B},\mu)$を所与とする．
+単調収束定理 $0\le f_n\le f_{n&#43;1}\text{ a.e. }(n=1,2,&amp;hellip;), f_n\rightarrow f\text{ a.e. }(n\rightarrow\infty)$である可測関数列$f_n(n=1,2,&amp;hellip;)$と可測関数$f$について $$\begin{align} \lim_{n\rightarrow\infty}\int_Xf_nd\mu=\int_Xfd\mu \end{align}$$ が成り立つ．
+Fatouの補題 $f_n\ge0\text{ a.e. }$である可測関数列に対して， $$\begin{align} \liminf_{n\rightarrow\infty}\int_Xf_nd\mu \ge \int_X\liminf_{n\rightarrow\infty}f_nd\mu \end{align}$$ が成り立つ．
+Lebesgueの収束定理 可測関数列$f_n(n=1,2,&amp;hellip;)$と可測関数$f$が以下をみたすものとする．
+ $f_n\rightarrow f\text{ a.e. }$, 可測関数$h$が各$n$に対し$|f_n|\le h$ このとき，極限関数$f$も可積分であり， $$\begin{align} \lim_{n\rightarrow\infty}\int_Xf_nd\mu=\int_Xfd\mu \end{align}$$ が成り立つ．  三定理の証明 証明は以下の感じ．
+ 単調収束定理が成り立つ $\Rightarrow$ Fatouの補題が成り立つ Fatouの補題が成り立つ $\Rightarrow$ 単調収束定理が成り立つ Fatouの補題が成り立つ $\Rightarrow$ Lebesgueの収束定理が成り立つ  単調収束定理が成り立つ ⇒ Fatouの補題が成り立つ $f_n\ge0\text{ a.e. }(n=1,2,&amp;hellip;)$である可測関数列が与えられたとする． $\liminf_{n\rightarrow\infty}f_n=\sup_{n\ge1}\inf_{k\ge n}f_k$に注意すると，$g_n:=\inf_{k\ge n}f_k$は $$\begin{align} f_n\ge g_n\text{ a.e., } \end{align}$$ をみたすので， $$\begin{align} g_n\uparrow \liminf_{n\rightarrow\infty}f_n\text{ a.|">
+    
+
+    <meta name="apple-mobile-web-app-title" content="Note置き場">
+    
+    
+    
+    
+
+
+    <link rel="stylesheet" href="/assets/syntax.css">
+    <link rel="stylesheet" href="/assets/primer-build.css">
+    <link rel="stylesheet" href="/assets/style.css">
+  </head>
+
+
+  <body class="bg-gray">
+    <div id="holy" class="container-lg bg-white h-100">
+
+      <div id="header" class="px-1 bg-white">
+        <nav class="UnderlineNav UnderlineNav--right px-2">
+  <a class="UnderlineNav-actions muted-link h2" href="https://syuheyk.github.io">
+    Note置き場
+  </a>
+
+  
+  
+  <div class="UnderlineNav-body">
+    
+    
+    
+    <a class="UnderlineNav-item " href="/posts/">
+      
+      <span>Notes</span>
+    </a>
+    
+    
+    
+    
+    <a class="UnderlineNav-item " href="/tags/">
+      
+      <span>Tags</span>
+    </a>
+    
+    
+  </div>
+  
+</nav>
+
+      </div>
+
+      <div role="main" id="main" class="holy-main markdown-body px-4 bg-white">
+        
+
+<div class="Subhead">
+  <div class="Subhead-heading">
+    <div class="h1 mt-3 mb-1">測度論の収束定理</div>
+  </div>
+  <div class="Subhead-description">
+    
+
+
+
+
+<a href='/tags/%E6%B8%AC%E5%BA%A6%E8%AB%96' class="muted-link">
+  <span class="Label Label--gray">測度論</span>
+</a>
+
+
+
+    
+    <div class="float-md-right">
+      <span title="Lastmod: 2020-01-16. Published at: 2020-01-16.">
+        
+          Published: 2020-01-16
+        
+      </span>
+    </div>
+    
+  </div>
+</div>
+<article>
+  
+  <section class="pb-6 mb-3 border-bottom">
+    <p>測度論の収束定理で有名な以下の三定理について，一つが成り立てば他二つも成り立つことを示します．
+その後，Lebesgueの収束定理を使った計算例を紹介します．</p>
+<h2 id="三定理のステートメント">三定理のステートメント</h2>
+<p>以下いずれも測度空間$(X,\mathcal{B},\mu)$を所与とする．</p>
+<h3 id="単調収束定理">単調収束定理</h3>
+<p>$0\le f_n\le f_{n+1}\text{ a.e. }(n=1,2,&hellip;), f_n\rightarrow f\text{ a.e. }(n\rightarrow\infty)$である可測関数列$f_n(n=1,2,&hellip;)$と可測関数$f$について
+<div>$$\begin{align}
+  \lim_{n\rightarrow\infty}\int_Xf_nd\mu=\int_Xfd\mu
+\end{align}$$</div>
+が成り立つ．</p>
+<h3 id="fatouの補題">Fatouの補題</h3>
+<p>$f_n\ge0\text{ a.e. }$である可測関数列に対して，
+<div>$$\begin{align}
+  \liminf_{n\rightarrow\infty}\int_Xf_nd\mu \ge \int_X\liminf_{n\rightarrow\infty}f_nd\mu
+\end{align}$$</div>
+が成り立つ．</p>
+<h3 id="lebesgueの収束定理">Lebesgueの収束定理</h3>
+<p>可測関数列$f_n(n=1,2,&hellip;)$と可測関数$f$が以下をみたすものとする．</p>
+<ol>
+<li>$f_n\rightarrow f\text{ a.e. }$,</li>
+<li>可測関数$h$が各$n$に対し$|f_n|\le h$
+このとき，極限関数$f$も可積分であり，
+<div>$$\begin{align}
+  \lim_{n\rightarrow\infty}\int_Xf_nd\mu=\int_Xfd\mu
+\end{align}$$</div>
+が成り立つ．</li>
+</ol>
+<h2 id="三定理の証明">三定理の証明</h2>
+<p>証明は以下の感じ．</p>
+<ul>
+<li>単調収束定理が成り立つ $\Rightarrow$ Fatouの補題が成り立つ</li>
+<li>Fatouの補題が成り立つ $\Rightarrow$ 単調収束定理が成り立つ</li>
+<li>Fatouの補題が成り立つ $\Rightarrow$ Lebesgueの収束定理が成り立つ</li>
+</ul>
+<h3 id="単調収束定理が成り立つ--fatouの補題が成り立つ">単調収束定理が成り立つ ⇒ Fatouの補題が成り立つ</h3>
+<p>$f_n\ge0\text{ a.e. }(n=1,2,&hellip;)$である可測関数列が与えられたとする．
+$\liminf_{n\rightarrow\infty}f_n=\sup_{n\ge1}\inf_{k\ge n}f_k$に注意すると，$g_n:=\inf_{k\ge n}f_k$は
+<div>$$\begin{align}
+  f_n\ge g_n\text{ a.e., }
+\end{align}$$</div>
+をみたすので，
+<div>$$\begin{align}
+  g_n\uparrow \liminf_{n\rightarrow\infty}f_n\text{ a.e. }
+\end{align}$$</div>
+が成り立つ．よって単調収束定理から，</p>
+<div>$$\begin{align}
+  
+\liminf_{n\rightarrow\infty}\int_Xf_nd\mu 
+\ge \liminf_{n\rightarrow\infty}\int_Xg_nd\mu 
+= \lim_{n\rightarrow\infty}\int_Xg_nd\mu \\
+= \int_X\lim_{n\rightarrow\infty}g_nd\mu 
+= \int_X\liminf_{n\rightarrow\infty}f_nd\mu.
+
+\end{align}$$</div>
+<h3 id="fatouの補題が成り立つ--単調収束定理が成り立つ">Fatouの補題が成り立つ ⇒ 単調収束定理が成り立つ</h3>
+<p>仮定の$0\le f_n\le f_{n+1}\text{ a.e. }(n=1,2,&hellip;)$から，各$n$に対して，$f_n\le f,\int_Xf_nd\mu\le\int_Xfd\mu$が成り立つ．これから,
+<div>$$\begin{align}
+  \limsup_{n\rightarrow\infty}\int_Xf_nd\mu\le\int_Xfd\mu.
+\end{align}$$</div>
+Fatouの補題から
+<div>$$\begin{align}
+  \int_Xfd\mu\le\liminf_{n\rightarrow\infty}\int_Xf_nd\mu
+\end{align}$$</div>
+が成り立つので，上2式を合わせて
+<div>$$\begin{align}
+  \limsup_{n\rightarrow\infty}\int_Xf_nd\mu\le\liminf_{n\rightarrow\infty}\int_Xf_nd\mu
+\end{align}$$</div>
+が成り立つ．上下限に関する基本的な関係式から
+<div>$$\begin{align}
+  \liminf_{n\rightarrow\infty}\int_Xf_nd\mu\le\limsup_{n\rightarrow\infty}\int_Xf_nd\mu
+\end{align}$$</div>
+が得られるから，
+<div>$$\begin{align}
+  \int_Xfd\mu=\limsup_{n\rightarrow\infty}\int_Xf_nd\mu=\liminf_{n\rightarrow\infty}\int_Xf_nd\mu
+\end{align}$$</div>
+より，$\inf_Xf_nd\mu$は$\int_Xfd\mu$に収束することがいえる．</p>
+<h3 id="fatouの補題が成り立つ--lebesgueの収束定理が成り立つ">Fatouの補題が成り立つ ⇒ Lebesgueの収束定理が成り立つ</h3>
+<h2 id="lebesgueの収束定理の計算例">Lebesgueの収束定理の計算例</h2>
+<h3 id="標準正規分布の全確率">標準正規分布の全確率</h3>
+<p>標準正規分布の全確率が$1$になること
+<div>$$\begin{align}
+  
+\int_{-\infty}^\infty\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}dx=1
+
+\end{align}$$</div>
+を重積分を使わずに証明します．その際にLebesgueの収束定理を使います．</p>
+<p>関数$f:[0,\infty)\rightarrow\mathbb{R}$を
+<div>$$\begin{align}
+  
+f(x)=\left(\int_0^xe^{-\frac{t^2}{2}}dt\right)^2+2\int_0^1\frac{\exp\left\{-\frac{x(1+t^2)}{2}\right\}}{1+t^2}dt
+
+\end{align}$$</div>
+と定義する．$f$を微分すると
+<div>$$\begin{align}
+  
+f'(x)
+    &=2\left(\int_0^xe^{-\frac{t^2}{2}}dt\right)\cdot e^{-\frac{x^2}{2}}\\
+    &\quad 2\int_0^1\frac{\exp\left\{-\frac{x(1+t^2)}{2}\right\}}{1+t^2}\cdot\left\{-x(1+t^2)\right\}dt\\
+    &=\cdots\\
+    &=0
+
+\end{align}$$</div>
+つまり$f$は定数関数．さらに
+<div>$$\begin{align}
+  
+f(0)
+    &=0+2\int_0^1\frac{1}{1+t^2}dt\\
+    &=2\left[\arctan t\right]_0^1\\
+    &=\frac{\pi}{2}
+
+\end{align}$$</div>
+なので，$f$の値は恒等的に$\pi/2$である．ゆえに
+<div>$$\begin{align}
+  
+\frac{\pi}{2}
+    &=\lim_{x\rightarrow\infty}f(x)\\
+    &=\left(\int_0^\infty e^{-\frac{t^2}{2}}dt\right)^2+2\lim_{x\rightarrow\infty}\int_0^1\frac{\exp\left\{-\frac{x(1+t^2)}{2}\right\}}{1+t^2}dt\\
+    &=\left(\int_0^\infty e^{-\frac{t^2}{2}}dt\right)^2+2\int_0^1\lim_{x\rightarrow\infty}\frac{\exp\left\{-\frac{x(1+t^2)}{2}\right\}}{1+t^2}dt\\
+    &=\left(\int_0^\infty e^{-\frac{t^2}{2}}dt\right)^2+0.
+
+\end{align}$$</div>
+この式を整理して全確率$1$の公式を得る．</p>
+<h3 id="sin-x-xの積分">$\sin x/ x$の積分</h3>
+<p>講義積分
+<div>$$\begin{align}
+  
+\lim_{M\rightarrow\infty}\int_0^M\frac{\sin x}{x}dx=\frac{\pi}{2}
+
+\end{align}$$</div>
+の証明．
+<div>$$\begin{align}
+  
+\lim_{M\rightarrow\infty}\int_0^M\frac{\sin x}{x}dx
+    &=\lim_{M\rightarrow\infty}\int_0^M\left(\int_0^\infty e^{-tx}dt\right)\sin xdx\\
+    &=\lim_{M\rightarrow\infty}\int_0^\infty\left(\int_0^Me^{-tx}\sin xdx\right)dt\\
+    &=\lim_{M\rightarrow\infty}\int_0^\infty\frac{1+e^{-tM}(\cos M+t\sin M)}{1+t^2}dt\\
+    &=\int_0^\infty\lim_{M\rightarrow\infty}\frac{1+e^{-tM}(\cos M+t\sin M)}{1+t^2}dt\\
+    &=\int_0^\infty\frac{1}{1+t^2}dt\\
+    &=\left[\arctan t\right]_0^\infty\\
+    &=\frac{\pi}{2}.
+
+\end{align}$$</div></p>
+
+  </section>
+
+  <section>
+    
+      
+    
+  </section>
+</article>
+
+      </div>
+
+      <div id="side" class="pr-1 bg-white">
+        <aside class="pr-3">
+          
+  
+    <div id="toc" class="Box Box--blue mb-3">
+      <b>測度論の収束定理</b><nav id="TableOfContents">
+  <ul>
+    <li><a href="#三定理のステートメント">三定理のステートメント</a>
+      <ul>
+        <li><a href="#単調収束定理">単調収束定理</a></li>
+        <li><a href="#fatouの補題">Fatouの補題</a></li>
+        <li><a href="#lebesgueの収束定理">Lebesgueの収束定理</a></li>
+      </ul>
+    </li>
+    <li><a href="#三定理の証明">三定理の証明</a>
+      <ul>
+        <li><a href="#単調収束定理が成り立つ--fatouの補題が成り立つ">単調収束定理が成り立つ ⇒ Fatouの補題が成り立つ</a></li>
+        <li><a href="#fatouの補題が成り立つ--単調収束定理が成り立つ">Fatouの補題が成り立つ ⇒ 単調収束定理が成り立つ</a></li>
+        <li><a href="#fatouの補題が成り立つ--lebesgueの収束定理が成り立つ">Fatouの補題が成り立つ ⇒ Lebesgueの収束定理が成り立つ</a></li>
+      </ul>
+    </li>
+    <li><a href="#lebesgueの収束定理の計算例">Lebesgueの収束定理の計算例</a>
+      <ul>
+        <li><a href="#標準正規分布の全確率">標準正規分布の全確率</a></li>
+        <li><a href="#sin-x-xの積分">$\sin x/ x$の積分</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+  
+
+  
+    <div>
+      
+    </div>
+  
+
+        </aside>
+      </div>
+
+      <div id="footer" class="pt-2 pb-3 bg-white text-center">
+         
+<footer id="footer" class="mt-auto text-center text-muted">
+  <div class="container">
+    
+  </div>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$']]
+      }
+    });
+  </script>
+</footer>
+
+
+
+
+
+      </div>
+    </div>
+
+    
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });</script>
+    
+  </body>
+</html>
