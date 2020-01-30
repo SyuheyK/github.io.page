@@ -1,6 +1,6 @@
 ---
-title: "Notes"
+title: "Tags"
 type: "top"
 menu: "main"
-weight: 1
+weight: 2
 ---

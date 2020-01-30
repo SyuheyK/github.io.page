@@ -1,6 +1,6 @@
 ---
-title: "Test Post"
-tags: ["TeX", "行列", "複素解析"]
+title: "Mathjaxのテスト"
+tags: ["TeX"]
 date: 2020-01-10T18:27:38+09:00
 draft: false
 ---
@@ -20,3 +20,9 @@ draft: false
   $$
 </div>
 
+#### 注意事項
+- 一段落で表示可能な数式数に限界があるようなので，あまり本文が長くならない様工夫する必要あり．
+- 数式行は改行して入れる．
+
+参照
+https://maku77.github.io/hugo/settings/math-jax.html

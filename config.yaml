@@ -1,39 +1,14 @@
 baseURL: https://syuheyk.github.io
 languageCode: jp
-title: SyuheyK
-theme: vanilla-bootstrap-hugo-theme
+title: Note置き場
+theme: hugo-primer
+disablePathToLower: true
 
 taxonomies:
   tag: tags
 
 permalinks:
   post: /:filename/
-
-# See https://feathericons.com/
-# The value of pre is the icon name
-menu:
-  nav:
-  - name: About
-    pre: meh
-    url: /about/
-    weight: 1
-  - name: Notes
-    pre: clipboard
-    url: /posts/
-    weight: 2
-  - name: RSS
-    pre: rss
-    url: /index.xml
-    weight: 3
-
-params:
-  includeBootstrapJs: false
-  showActiveNav: true
-  containerMaxWidth: 800px
-  dateFormat: 2006 Jan 2
-  homeText: もろもろを書きためる用
-  footerText: Made with [Hugo](https://gohugo.io/) & [Vanilla](https://github.com/zwbetz-gh/vanilla-bootstrap-hugo-theme)
-  hideFooter: false
 
 markup:
   defaultMarkdownHandler: goldmark
