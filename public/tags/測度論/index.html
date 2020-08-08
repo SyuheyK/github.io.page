@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+  測度論 &ndash; Note置き場
+
+    </title>
+    
+    
+    <meta name="description" property="og:description" content="">
+    
+
+    <meta name="apple-mobile-web-app-title" content="Note置き場">
+    
+    
+    
+    
+
+
+    <link rel="stylesheet" href="/assets/syntax.css">
+    <link rel="stylesheet" href="/assets/primer-build.css">
+    <link rel="stylesheet" href="/assets/style.css">
+  </head>
+
+
+  <body class="bg-gray">
+    <div id="holy" class="container-lg bg-white h-100">
+
+      <div id="header" class="px-1 bg-white">
+        <nav class="UnderlineNav UnderlineNav--right px-2">
+  <a class="UnderlineNav-actions muted-link h2" href="https://syuheyk.github.io">
+    Note置き場
+  </a>
+
+  
+  
+  <div class="UnderlineNav-body">
+    
+    
+    
+    <a class="UnderlineNav-item " href="/posts/">
+      
+      <span>Notes</span>
+    </a>
+    
+    
+    
+    
+    <a class="UnderlineNav-item " href="/tags/">
+      
+      <span>Tags</span>
+    </a>
+    
+    
+  </div>
+  
+</nav>
+
+      </div>
+
+      <div role="main" id="main" class="holy-main markdown-body px-4 bg-white">
+        
+
+<div>
+
+  <h1>測度論</h1>
+  
+
+  
+    
+    
+<div class="rounded-2 box-shadow-medium px-3 pb-2 pt-2 mb-3">
+  <div class="Subhead mb-2">
+    <div class="Subhead-heading">
+      <a href="/posts/200123maesure-RadonNikodym/">
+        <div class="h2 mt-1 mb-1">Radon-Nikodymの定理のまとめ</div>
+      </a>
+    </div>
+    <div class="Subhead-description">
+      
+
+
+
+
+<a href='/tags/%E6%B8%AC%E5%BA%A6%E8%AB%96' class="muted-link">
+  <span class="Label Label--gray">測度論</span>
+</a>
+
+<a href='/tags/%E7%A2%BA%E7%8E%87%E8%AB%96' class="muted-link">
+  <span class="Label Label--gray">確率論</span>
+</a>
+
+
+      <div class="float-md-right">
+        <span>2020-01-23</span>
+      </div>
+    </div>
+  </div>
+  <div class="text-gray">
+    
+    過去にメモしたRadon-Nikodymの定理の証明まとめ． Capinski and Kopp「Measure, Integral and Probability」を元に記載しました．
+可測空間$(\Omega,\mathcal{F})$上の$F\in\mathcal{F}$に対する測度$\nu(F)$が $$\begin{align} F\mapsto\nu(F)=\int_Ffd\mu \end{align}$$ となるような$f$を見つける問題．
+用語 $\nu$と$\mu$はともに可測空間$(\Omega,\mathcal{F})$上の測度とする．
+  絶対連続(absolutely continuous)
+任意の$F\in\mathcal{F}$に対して$\mu(F)=0$ならば$\nu(F)=0$が成り立つならば，$\nu$は$\mu$に対して絶対連続であるといい，$\nu&laquo;\mu$と表す．
+  押さえる(dominate)
+任意の$F\in\mathcal{F}$に対して$0\le\nu(F)\le\mu(F)$が成り立つとき，$\mu$は$\nu$を押さえるという．
+  分割(partition)
+$\mathcal{F}$内の有限な排反部分集合の集まり$\mathcal{P}=(F_i)_{i\le n}$で$\cup_iF_i=\Omega$をみたすものを，(有限可測な)$\Omega$の分割と呼ぶ．
+  細分(refinement)
+2つの分割$\mathcal{P},\mathcal{P&rsquo;}$について，任意の$\mathcal{P}$の要素が$\mathcal{P&rsquo;}$の排反な要素の和集合で表されるとき，$\mathcal{P&rsquo;}$は$\mathcal{P}$の細分と呼ぶ．
+  $\sigma$-有限($\sigma$-finite)
+$\cup_iF_i=\Omega$をみたす$\mathcal{F}$-可測な集合列$(F_i)_{i\ge0}$が存在して，各$i$について$\nu(F_i)$が有限の値をとるとき，$\nu$を$\sigma$-有限な測度と呼ぶ．
+  証明 Radon-Nikodymの定理の証明をするときに，以下の補助定理を使うと便利なので，事前に証明しておきます． Radon-Nikodymの定理との違いは
+ 2つの測度が$\sigma$-有限ではなく，一方がもう片方を押さえているという仮定になっている． 押さえている方の測度$\mu$が全測度で1となる($\mu(\Omega)=1$)． という2点．ただし，結論の形はRadon-Nikodymの定理と同様なのでその雰囲気は掴んでもらえるはず．  補助定理
+任意の$F\in\mathcal{F}$に対して，$\mu(\Omega)=1,0\le\nu(F)\le\mu(F)$が成り立つ，つまり$\mu$は$\nu$を押さえる測度とする． このとき，任意の$F\in\mathcal{F}$に対して， $$\begin{align} \nu(F)=\int_Fhd\mu\tag*{(#1)}\label{eq1} \end{align}$$ をみたす，($\Omega$上の)非負$\mathcal{F}$-可測関数$h$が存在する．
+補助定理の証明 以下のステップで証明する．
+ 分割$\mathcal{P}$に含まれる集合上で$\ref{eq1}$をみたすような$h_\mathcal{P}$を構成する． ついでに$\mathcal{P}_{n+1}$が$\mathcal{P}_n$を細分するような分割の列$\mathcal{P}_1,\mathcal{P}_2,&hellip;$について $$\begin{align} \nu(F)=\int_\Omega h^2_{\mathcal{P}_n}d\mu\tag*{(#2)}\label{eq2} \end{align}$$ が非減少列になることを確認する． 1.の結果および$\ref{eq2}$で定められる列が上限1をもつことから，収束定理を使って， $h_{\mathcal{P}_{n}}$の極限として$\ref{eq1}$をみたす$h$を求めることができる． 2.の方法で定めた$h$が望ましい性質を持つことを確認する．  1.の説明 $A_i\in\mathcal{F}$に対して，$\mathcal{P}={A_1,A_2,&hellip;,A_k}$を$\Omega$の分割とした上で， 以下の様に$A_i$上ではのっぺりするような関数$h_\mathcal{P}$を定める． $$\begin{align} h_\mathcal{P}=\begin{cases} c_i=\dfrac{\nu(A_i)}{\mu(A_i)},\omega\in A_i & \mu(A_i)0\\ 0&\text{otherwise}\\ \end{cases} \end{align}$$ 補助定理の仮定から任意の$F\in\mathcal{F}$に対して$\mu(\Omega)=1,0\le\nu(F)\le\mu(F)$が成り立っていることに注意すると， この関数$h_\mathcal{P}$は以下の性質をもつことがわかる． ただし，$\mathcal{P},\mathcal{P}_1,\mathcal{P}_2$は$\Omega$の分割で$\mathcal{P}_2$は$\mathcal{P}_1$の細分であるとする．
+    <a class="muted-link" href="/posts/200123maesure-RadonNikodym/">…</a>
+  </div>
+</div>
+
+  
+    
+    
+<div class="rounded-2 box-shadow-medium px-3 pb-2 pt-2 mb-3">
+  <div class="Subhead mb-2">
+    <div class="Subhead-heading">
+      <a href="/posts/200116measure-convergence/">
+        <div class="h2 mt-1 mb-1">測度論の収束定理</div>
+      </a>
+    </div>
+    <div class="Subhead-description">
+      
+
+
+
+
+<a href='/tags/%E6%B8%AC%E5%BA%A6%E8%AB%96' class="muted-link">
+  <span class="Label Label--gray">測度論</span>
+</a>
+
+
+      <div class="float-md-right">
+        <span>2020-01-16</span>
+      </div>
+    </div>
+  </div>
+  <div class="text-gray">
+    
+    測度論の収束定理で有名な以下の三定理について，一つが成り立てば他二つも成り立つことを示します． その後，Lebesgueの収束定理を使った計算例を紹介します．
+三定理のステートメント 以下いずれも測度空間$(X,\mathcal{B},\mu)$を所与とする．
+単調収束定理 $0\le f_n\le f_{n+1}\text{ a.e. }(n=1,2,&hellip;), f_n\rightarrow f\text{ a.e. }(n\rightarrow\infty)$である可測関数列$f_n(n=1,2,&hellip;)$と可測関数$f$について $$\begin{align} \lim_{n\rightarrow\infty}\int_Xf_nd\mu=\int_Xfd\mu \end{align}$$ が成り立つ．
+Fatouの補題 $f_n\ge0\text{ a.e. }$である可測関数列に対して， $$\begin{align} \liminf_{n\rightarrow\infty}\int_Xf_nd\mu \ge \int_X\liminf_{n\rightarrow\infty}f_nd\mu \end{align}$$ が成り立つ．
+Lebesgueの収束定理 可測関数列$f_n(n=1,2,&hellip;)$と可測関数$f$が以下をみたすものとする．
+ $f_n\rightarrow f\text{ a.e. }$, 可測関数$h$が各$n$に対し$|f_n|\le h$ このとき，極限関数$f$も可積分であり， $$\begin{align} \lim_{n\rightarrow\infty}\int_Xf_nd\mu=\int_Xfd\mu \end{align}$$ が成り立つ．  三定理の証明 証明は以下の感じ．
+ 単調収束定理が成り立つ $\Rightarrow$ Fatouの補題が成り立つ Fatouの補題が成り立つ $\Rightarrow$ 単調収束定理が成り立つ Fatouの補題が成り立つ $\Rightarrow$ Lebesgueの収束定理が成り立つ  単調収束定理が成り立つ ⇒ Fatouの補題が成り立つ $f_n\ge0\text{ a.e. }(n=1,2,&hellip;)$である可測関数列が与えられたとする． $\liminf_{n\rightarrow\infty}f_n=\sup_{n\ge1}\inf_{k\ge n}f_k$に注意すると，$g_n:=\inf_{k\ge n}f_k$は $$\begin{align} f_n\ge g_n\text{ a.e., } \end{align}$$ をみたすので， $$\begin{align} g_n\uparrow \liminf_{n\rightarrow\infty}f_n\text{ a.
+    <a class="muted-link" href="/posts/200116measure-convergence/">…</a>
+  </div>
+</div>
+
+  
+
+  
+  
+
+
+
+
+</div>
+
+
+      </div>
+
+      <div id="side" class="pr-1 bg-white">
+        <aside class="pr-3">
+          
+  
+
+  <div class="Box Box--blue p-2 mb-3 mt-5">
+    <a href="/tags/" class="link-gray-dark">
+      <h4>Tags</h4>
+    </a>
+    
+    <span class="css-truncate no-wrap m-1 pl-1">
+      <a href="/tags/tex" class="link-gray text-emphasized css-truncate-target"><span class="">Te x</span></a>
+      <span class="text-right Counter">1</span>
+    </span>
+    
+    <span class="css-truncate no-wrap m-1 pl-1">
+      <a href="/tags/mac" class="link-gray text-emphasized css-truncate-target"><span class="">Mac</span></a>
+      <span class="text-right Counter">1</span>
+    </span>
+    
+    <span class="css-truncate no-wrap m-1 pl-1">
+      <a href="/tags/test" class="link-gray text-emphasized css-truncate-target"><span class="">Test</span></a>
+      <span class="text-right Counter">1</span>
+    </span>
+    
+    <span class="css-truncate no-wrap m-1 pl-1">
+      <a href="/tags/%e5%be%ae%e5%88%86%e5%b9%be%e4%bd%95" class="link-gray text-emphasized css-truncate-target"><span class="">微分幾何</span></a>
+      <span class="text-right Counter">1</span>
+    </span>
+    
+    <span class="css-truncate no-wrap m-1 pl-1">
+      <a href="/tags/%e6%b8%ac%e5%ba%a6%e8%ab%96" class="link-gray text-emphasized css-truncate-target"><span class="">測度論</span></a>
+      <span class="text-right Counter">2</span>
+    </span>
+    
+    <span class="css-truncate no-wrap m-1 pl-1">
+      <a href="/tags/%e7%a2%ba%e7%8e%87%e8%ab%96" class="link-gray text-emphasized css-truncate-target"><span class="">確率論</span></a>
+      <span class="text-right Counter">2</span>
+    </span>
+    
+    <span class="css-truncate no-wrap m-1 pl-1">
+      <a href="/tags/%e8%87%aa%e7%84%b6%e8%a8%80%e8%aa%9e%e5%87%a6%e7%90%86" class="link-gray text-emphasized css-truncate-target"><span class="">自然言語処理</span></a>
+      <span class="text-right Counter">1</span>
+    </span>
+    
+    <span class="css-truncate no-wrap m-1 pl-1">
+      <a href="/tags/%e8%a4%87%e7%b4%a0%e8%a7%a3%e6%9e%90" class="link-gray text-emphasized css-truncate-target"><span class="">複素解析</span></a>
+      <span class="text-right Counter">1</span>
+    </span>
+    
+  </div>
+
+
+
+
+
+
+        </aside>
+      </div>
+
+      <div id="footer" class="pt-2 pb-3 bg-white text-center">
+         
+<footer id="footer" class="mt-auto text-center text-muted">
+  <div class="container">
+    
+  </div>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$']]
+      }
+    });
+  </script>
+</footer>
+
+
+
+
+
+      </div>
+    </div>
+
+    
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });</script>
+    
+  </body>
+</html>

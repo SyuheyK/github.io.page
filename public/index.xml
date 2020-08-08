@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>About The Author on Note置き場</title>
+    <link>https://syuheyk.github.io/</link>
+    <description>Recent content in About The Author on Note置き場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>jp</language>
+    <lastBuildDate>Sat, 01 Aug 2020 10:00:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://syuheyk.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>微分幾何のまとめ</title>
+      <link>https://syuheyk.github.io/posts/200801DiffGeo1/</link>
+      <pubDate>Sat, 01 Aug 2020 10:00:00 +0900</pubDate>
+      
+      <guid>https://syuheyk.github.io/posts/200801DiffGeo1/</guid>
+      <description>細野忍「微分幾何」を元に， リーマン幾何学に関する内容をダイジェストでまとめます． 細かな設定について確認するというよりは，大まかな流れを簡潔にまとめて，なるべく計算で全体像がつかめるような内容にしています．
+可微分多様体と接空間の定義 内容，流れとキーワード
+ 可微分多様体の定義 多様体上の関数とその方向微分 方向微分のなす空間としての接空間 接空間に含まれる多様体 $M$ 上の接ベクトルのなすベクトル場 計量の公理と誘導計量，リーマン計量 リーマン計量による曲線の長さの表現 余接空間とテンソル場，特に共変ベクトル場と反変ベクトル場 捩率テンソルと接続，接続係数 共変微分とその適用例 リーマン接続 平行移動と測地線  可微分多様体の定義 全体をとおして，可微分多様体 $M$ を考える． 可微分多様体 $M$ とは， (位相)多様体 $M$ について， $U_\alpha\cap U_\beta\neq\phi$ をみたす任意の$2$つの局所座標近傍 $(U_\beta,\phi_\alpha)$ と $(U_\beta,\phi_\beta)$ について， 両者の間の座標を移す連続写像: $$\begin{align} \phi_{\beta\alpha}:=\phi_\beta\circ\phi^{-1}_\alpha:\phi_\alpha(U_\alpha\cap U_\beta)\rightarrow\phi_\beta(U_\alpha\cap U_\beta) \end{align}$$ が定められていて，その座標変換関数が具体的に $$\begin{align} u^1_\beta(p)&amp;=u^1_\beta(u^1_\alpha(p),u^2_\alpha(p))=u^1_\beta(u^1_\alpha,u^2_\alpha)(p), \\u^2_\beta(p)&amp;=u^2_\beta(u^1_\alpha(p),u^2_\alpha(p))=u^2_\beta(u^1_\alpha,u^2_\alpha)(p) \end{align}$$ と書かれ，$C^\infty$ 級関数となっているものである．
+多様体上の関数と接空間 Euclid空間 $\mathbb{E}^3$ 内の曲面上の点 $p$ における接平面が$2$ つのベクトルを基底に定められたことと同様に， 可微分多様体上での曲面およびその接平面を考える．そのために
+ 可微分多様体 $M$ 上の $C^\infty$ 級関数(曲面の方程式に対応) その関数の方向微分(接平面を構成する接ベクトルに対応) に関して考察し，可微分多様体での&amp;quot;接平面(=接空間)&amp;ldquo;を定める．  $M$ 上の関数 $f:M\rightarrow\mathbb{R}$ を考え，これが $C^\infty$ 級関数であることを，任意の局所座標近傍 $(U_\alpha,\phi_\alpha)$ について $$\begin{align} f\circ\phi_\alpha^{-1}:\phi_\alpha(U_\alpha)\rightarrow\mathbb{R} \end{align}$$ が $C^\infty$ 級関数であることと定める． この関数 $f$ を $u^1_\alpha\times u^2_\alpha$ 平面上の二変数関数と捉えると関数 $f$ の偏微分を $$\begin{align} \dfrac{\partial f}{\partial u^i_\alpha}(p):=\dfrac{\partial(f\circ\phi^{-1}_\alpha)(u^1_\alpha,u^2_\alpha)}{\partial u^i_\alpha}(p) \end{align}$$ 各変数$u^1_\alpha,u^2_\alpha$による偏微分の線形結合を用いれば，方向微分を $$\begin{align} \xi^1\dfrac{\partial f}{\partial u^1_\alpha}(p) + \xi^2\dfrac{\partial f}{\partial u^2_\alpha}(p) &amp;=\xi^1\dfrac{\partial(f\circ\phi^{-1}_\alpha)(u^1_\alpha,u^2_\alpha)}{\partial u^1_\alpha}(p) + \xi^2\dfrac{\partial(f\circ\phi^{-1}_\alpha)(u^1_\alpha,u^2_\alpha)}{\partial u^2_\alpha}(p) \end{align}$$ と定めることができるが，さらにこれを $$\begin{align} \xi^1\dfrac{\partial f}{\partial u^1_\alpha}(p) + \xi^2\dfrac{\partial f}{\partial u^2_\alpha}(p) &amp;= \left\{\xi^1\left(\dfrac{\partial}{\partial u^1_\alpha}\right)_p + \xi^2\left(\dfrac{\partial}{\partial u^2_\alpha}\right)_p\right\}f \end{align}$$ と変形し，関数 $f$ に作用する部分を方向微分と捉える． ここで $(\partial/\partial u^i_\alpha)_p$ は点 $p$ における偏微分を表す． この様に定義した方向微分を2つ考え $$\begin{align} \xi_p=\sum_{i=1}^2\xi^i\left(\dfrac{\partial}{\partial u^i_\alpha}\right)_p ,\;\eta_p=\sum_{i=1}^2\eta^i\left(\dfrac{\partial}{\partial u^i_\alpha}\right)_p \end{align}$$ と表し，線形和と定数倍を</description>
+    </item>
+    
+    <item>
+      <title>Mecabの使い方のまとめ</title>
+      <link>https://syuheyk.github.io/posts/200127mecab-intro/</link>
+      <pubDate>Mon, 27 Jan 2020 10:00:00 +0900</pubDate>
+      
+      <guid>https://syuheyk.github.io/posts/200127mecab-intro/</guid>
+      <description>インストール方法 以下を参照．
+設定ファイルの場所 環境によって異なるので注意．
+https://ichibariki.hatenablog.com/entry/2017/01/09/150542 https://obel.hatenablog.jp/entry/20170218/1487418388
+ユーザ辞書の追加 https://m0t0k1ch1st0ry.com/blog/2016/06/04/mecab/
+/usr/local/Cellar/mecab/0.996/libexec/mecab/mecab-dict-index \ -d /usr/local/lib/mecab/dic/mecab-ipadic-neologd \ -u /usr/local/lib/mecab/dic/userdic/user_dic.dic \ -f utf-8 \ -t utf-8 \ ./user_dic.csv オプションの説明は以下のとおり． |コマンド|内容| |:&amp;mdash;:|&amp;mdash;| |-d DIR:| システム辞書があるディレクトリ| |-u FILE:| FILE というユーザファイルを作成| |-f charset:| CSVの文字コード| |-t charset: |バイナリ辞書の文字コード|
+処理結果が reading ./tailoring_dic.csv ... 1 emitting double-array: 100% |###########################################| done! と， done! の文字が出力されればOK． その後， /usr/local/etc/macabrc に以下の1行を追加し，ユーザ辞書の設定が読まれる様にする． userdic = /usr/local/lib/mecab/dic/userdic/user_dic.dic 
+pythonからのユーザ辞書の利用方法 Taggarのオプションに -u でユーザ辞書のpathを追加する． import MeCab mecab = MeCab.Tagger (&amp;#39;-d /usr/local/lib/mecab/dic/mecab-ipadic-neologd -u /usr/local/lib/mecab/dic/userdic/user_dic.</description>
+    </item>
+    
+    <item>
+      <title>Radon-Nikodymの定理のまとめ</title>
+      <link>https://syuheyk.github.io/posts/200123maesure-RadonNikodym/</link>
+      <pubDate>Thu, 23 Jan 2020 10:00:00 +0900</pubDate>
+      
+      <guid>https://syuheyk.github.io/posts/200123maesure-RadonNikodym/</guid>
+      <description>過去にメモしたRadon-Nikodymの定理の証明まとめ． Capinski and Kopp「Measure, Integral and Probability」を元に記載しました．
+可測空間$(\Omega,\mathcal{F})$上の$F\in\mathcal{F}$に対する測度$\nu(F)$が $$\begin{align} F\mapsto\nu(F)=\int_Ffd\mu \end{align}$$ となるような$f$を見つける問題．
+用語 $\nu$と$\mu$はともに可測空間$(\Omega,\mathcal{F})$上の測度とする．
+  絶対連続(absolutely continuous)
+任意の$F\in\mathcal{F}$に対して$\mu(F)=0$ならば$\nu(F)=0$が成り立つならば，$\nu$は$\mu$に対して絶対連続であるといい，$\nu&amp;laquo;\mu$と表す．
+  押さえる(dominate)
+任意の$F\in\mathcal{F}$に対して$0\le\nu(F)\le\mu(F)$が成り立つとき，$\mu$は$\nu$を押さえるという．
+  分割(partition)
+$\mathcal{F}$内の有限な排反部分集合の集まり$\mathcal{P}=(F_i)_{i\le n}$で$\cup_iF_i=\Omega$をみたすものを，(有限可測な)$\Omega$の分割と呼ぶ．
+  細分(refinement)
+2つの分割$\mathcal{P},\mathcal{P&amp;rsquo;}$について，任意の$\mathcal{P}$の要素が$\mathcal{P&amp;rsquo;}$の排反な要素の和集合で表されるとき，$\mathcal{P&amp;rsquo;}$は$\mathcal{P}$の細分と呼ぶ．
+  $\sigma$-有限($\sigma$-finite)
+$\cup_iF_i=\Omega$をみたす$\mathcal{F}$-可測な集合列$(F_i)_{i\ge0}$が存在して，各$i$について$\nu(F_i)$が有限の値をとるとき，$\nu$を$\sigma$-有限な測度と呼ぶ．
+  証明 Radon-Nikodymの定理の証明をするときに，以下の補助定理を使うと便利なので，事前に証明しておきます． Radon-Nikodymの定理との違いは
+ 2つの測度が$\sigma$-有限ではなく，一方がもう片方を押さえているという仮定になっている． 押さえている方の測度$\mu$が全測度で1となる($\mu(\Omega)=1$)． という2点．ただし，結論の形はRadon-Nikodymの定理と同様なのでその雰囲気は掴んでもらえるはず．  補助定理
+任意の$F\in\mathcal{F}$に対して，$\mu(\Omega)=1,0\le\nu(F)\le\mu(F)$が成り立つ，つまり$\mu$は$\nu$を押さえる測度とする． このとき，任意の$F\in\mathcal{F}$に対して， $$\begin{align} \nu(F)=\int_Fhd\mu\tag*{(#1)}\label{eq1} \end{align}$$ をみたす，($\Omega$上の)非負$\mathcal{F}$-可測関数$h$が存在する．
+補助定理の証明 以下のステップで証明する．
+ 分割$\mathcal{P}$に含まれる集合上で$\ref{eq1}$をみたすような$h_\mathcal{P}$を構成する． ついでに$\mathcal{P}_{n+1}$が$\mathcal{P}_n$を細分するような分割の列$\mathcal{P}_1,\mathcal{P}_2,&amp;hellip;$について $$\begin{align} \nu(F)=\int_\Omega h^2_{\mathcal{P}_n}d\mu\tag*{(#2)}\label{eq2} \end{align}$$ が非減少列になることを確認する． 1.の結果および$\ref{eq2}$で定められる列が上限1をもつことから，収束定理を使って， $h_{\mathcal{P}_{n}}$の極限として$\ref{eq1}$をみたす$h$を求めることができる． 2.の方法で定めた$h$が望ましい性質を持つことを確認する．  1.の説明 $A_i\in\mathcal{F}$に対して，$\mathcal{P}={A_1,A_2,&amp;hellip;,A_k}$を$\Omega$の分割とした上で， 以下の様に$A_i$上ではのっぺりするような関数$h_\mathcal{P}$を定める． $$\begin{align} h_\mathcal{P}=\begin{cases} c_i=\dfrac{\nu(A_i)}{\mu(A_i)},\omega\in A_i &amp; \mu(A_i)0\\ 0&amp;\text{otherwise}\\ \end{cases} \end{align}$$ 補助定理の仮定から任意の$F\in\mathcal{F}$に対して$\mu(\Omega)=1,0\le\nu(F)\le\mu(F)$が成り立っていることに注意すると， この関数$h_\mathcal{P}$は以下の性質をもつことがわかる． ただし，$\mathcal{P},\mathcal{P}_1,\mathcal{P}_2$は$\Omega$の分割で$\mathcal{P}_2$は$\mathcal{P}_1$の細分であるとする．</description>
+    </item>
+    
+    <item>
+      <title>test</title>
+      <link>https://syuheyk.github.io/posts/200130test/</link>
+      <pubDate>Thu, 16 Jan 2020 10:00:00 +0900</pubDate>
+      
+      <guid>https://syuheyk.github.io/posts/200130test/</guid>
+      <description>test</description>
+    </item>
+    
+    <item>
+      <title>測度論の収束定理</title>
+      <link>https://syuheyk.github.io/posts/200116measure-convergence/</link>
+      <pubDate>Thu, 16 Jan 2020 10:00:00 +0900</pubDate>
+      
+      <guid>https://syuheyk.github.io/posts/200116measure-convergence/</guid>
+      <description>測度論の収束定理で有名な以下の三定理について，一つが成り立てば他二つも成り立つことを示します． その後，Lebesgueの収束定理を使った計算例を紹介します．
+三定理のステートメント 以下いずれも測度空間$(X,\mathcal{B},\mu)$を所与とする．
+単調収束定理 $0\le f_n\le f_{n+1}\text{ a.e. }(n=1,2,&amp;hellip;), f_n\rightarrow f\text{ a.e. }(n\rightarrow\infty)$である可測関数列$f_n(n=1,2,&amp;hellip;)$と可測関数$f$について $$\begin{align} \lim_{n\rightarrow\infty}\int_Xf_nd\mu=\int_Xfd\mu \end{align}$$ が成り立つ．
+Fatouの補題 $f_n\ge0\text{ a.e. }$である可測関数列に対して， $$\begin{align} \liminf_{n\rightarrow\infty}\int_Xf_nd\mu \ge \int_X\liminf_{n\rightarrow\infty}f_nd\mu \end{align}$$ が成り立つ．
+Lebesgueの収束定理 可測関数列$f_n(n=1,2,&amp;hellip;)$と可測関数$f$が以下をみたすものとする．
+ $f_n\rightarrow f\text{ a.e. }$, 可測関数$h$が各$n$に対し$|f_n|\le h$ このとき，極限関数$f$も可積分であり， $$\begin{align} \lim_{n\rightarrow\infty}\int_Xf_nd\mu=\int_Xfd\mu \end{align}$$ が成り立つ．  三定理の証明 証明は以下の感じ．
+ 単調収束定理が成り立つ $\Rightarrow$ Fatouの補題が成り立つ Fatouの補題が成り立つ $\Rightarrow$ 単調収束定理が成り立つ Fatouの補題が成り立つ $\Rightarrow$ Lebesgueの収束定理が成り立つ  単調収束定理が成り立つ ⇒ Fatouの補題が成り立つ $f_n\ge0\text{ a.e. }(n=1,2,&amp;hellip;)$である可測関数列が与えられたとする． $\liminf_{n\rightarrow\infty}f_n=\sup_{n\ge1}\inf_{k\ge n}f_k$に注意すると，$g_n:=\inf_{k\ge n}f_k$は $$\begin{align} f_n\ge g_n\text{ a.e., } \end{align}$$ をみたすので， $$\begin{align} g_n\uparrow \liminf_{n\rightarrow\infty}f_n\text{ a.</description>
+    </item>
+    
+    <item>
+      <title>留数定理までの複素関数論を計算で(&#43;特性関数の計算)</title>
+      <link>https://syuheyk.github.io/posts/200115complex1/</link>
+      <pubDate>Wed, 15 Jan 2020 10:00:00 +0900</pubDate>
+      
+      <guid>https://syuheyk.github.io/posts/200115complex1/</guid>
+      <description>神保道夫「複素関数入門」を元に， 留数定理に至る複素関数論の内容を計算部分だけピックアップし， 確率論における確率分布(標準正規分布，Gamma分布，Cauchy分布)の特性関数を求めました．
+目次  微分の定義 複素関数の微分とCauchy-Riemannの方程式 Cauchy-Riemannの方程式の簡便な表示 Cauchyの積分定理  Cauchyの積分定理の適用例 Cauchyの積分定理を使った特性関数の計算(確率論)   Cauchyの積分公式 留数定理  
+微分の定義 まず，確認のため実数値関数$u$の$1$変数の微分の定義を改めて書き下す． $u(x)$が点$x_0$で微分可能のとき，高位の微分小をランダウの記号$o$を用いて， $$\begin{align} u(x)=u(x_0)+a(x-x_0)+o(|x-x_0|),\text{ }(x\rightarrow0) \end{align}$$ と表すことができる．ここで$a$は $$\begin{align} \lim_{h\rightarrow0}\frac{u(x_0+h)-u(x_0)}{h}=a \end{align}$$ で定まる微分係数であり，これが$du/dx(x_0)$と表されるものである． 同様に，$2$変数の実数値関数$u(x,y)$が点$(x_0,y_0)$で微分可能のとき， $$\begin{align} u(x,y)=u(x_0,y_0)+a(x-x_0)+b(y-y_0)+o(\sqrt{(x-x_0)^2+(y-y_0)^2}) \end{align}$$ と表せるとき，偏微分係数$a$と$b$をそれぞれ $$\begin{align} a=\frac{\partial u}{\partial x}(x_0,y_0),\text{ }b=\frac{\partial u}{\partial y}(x_0,y_0) \end{align}$$ と表すことができる．
+
+複素関数の微分とCauchy-Riemannの方程式 複素数を変数にとる複素数値関数$f(z)$の$z_0=z_0+iy_0$において微分可能であるとき， $$\begin{align} f(z)=f(z_0)+\alpha(z-z_0)+o(|z-z_0|), \alpha=\frac{df}{dz}(z_0) \end{align}$$ と表す．$z$,$f$,$\alpha$がそれぞれ， $$\begin{align} z=x+iy,f(z)=u(x,y)+iv(x,y),\alpha=a+ib \end{align}$$ と表されるとき，上記の$2$変数の場合の微分の定義を用いて次式が成り立つ． $$\begin{align} f(z)&amp;=u(x,y)+iv(x,y)\\ &amp;=u(x_0,y_0)+iv(x_0,y_0)+(a+ib)(x+iy-x_0-iy_0)+o(\sqrt{(x-x_0)^2+(y-y_0)^2})\\ &amp;=u(x_0,y_0)+a(x-x_0)-b(y-y_0)+i\left\{v(x_0,y_0)+b(x-x_0)+a(y-y_0)\right\}+o(\sqrt{(x-x_0)^2+(y-y_0)^2}) \end{align}$$ 実部，虚部をそれぞれ抜き出せば $$\begin{align} u(x,y)=u(x_0,y_0)+a(x-x_0)-b(y-y_0)+o(\sqrt{(x-x_0)^2+(y-y_0)^2})\\ v(x,y)=v(x_0,y_0)+b(x-x_0)+a(y-y_0)+o(\sqrt{(x-x_0)^2+(y-y_0)^2}) \end{align}$$ が得られ，各点における偏微分係数に $$\begin{align} \frac{\partial u}{\partial x}(x,y)=\frac{\partial v}{\partial y}(x,y),\text{ }\frac{\partial u}{\partial y}(x,y)=-\frac{\partial v}{\partial x}(x,y) \end{align}$$ と言う関係が成り立つことがわかり，これはCauchy-Riemannの方程式と呼ばれる．</description>
+    </item>
+    
+    <item>
+      <title>macの設定</title>
+      <link>https://syuheyk.github.io/posts/200114mac-setting/</link>
+      <pubDate>Tue, 14 Jan 2020 10:00:00 +0900</pubDate>
+      
+      <guid>https://syuheyk.github.io/posts/200114mac-setting/</guid>
+      <description>macの設定について参照するページ   macのshellの設定について参照するページ  pythonの環境 </description>
+    </item>
+    
+    <item>
+      <title>Mathjaxのテスト</title>
+      <link>https://syuheyk.github.io/posts/200113mathjax-test/</link>
+      <pubDate>Fri, 10 Jan 2020 18:27:38 +0900</pubDate>
+      
+      <guid>https://syuheyk.github.io/posts/200113mathjax-test/</guid>
+      <description>テスト投稿がてら，LaTeX表現ができるか確認
+ $$ \begin{bmatrix} a &amp; b \\ c &amp; d \\ \end{bmatrix} $$ $$ f(z)=\oint_{|\zeta-c|=R}\frac{f(\zeta)}{\zeta-z}\frac{d\zeta}{2\pi i},\text{ }(|z-c|注意事項  一段落で表示可能な数式数に限界があるようなので，あまり本文が長くならない様工夫する必要あり． 数式行は改行して入れる．  参照 https://maku77.github.io/hugo/settings/math-jax.html</description>
+    </item>
+    
+    <item>
+      <title>About SyuheyK</title>
+      <link>https://syuheyk.github.io/about/</link>
+      <pubDate>Fri, 10 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://syuheyk.github.io/about/</guid>
+      <description>このブログでは，主に諸々のノートを書きためていきます.
+interest  数学(確率論，統計学) プログラミング(一応&amp;hellip;)  career  大学院まで確率論＋金融工学 新卒で金融機関に(リスク管理+クオンツ) 某ECモールのデータアナリスト(と言う名のデータなんでも屋)  </description>
+    </item>
+    
+  </channel>
+</rss>

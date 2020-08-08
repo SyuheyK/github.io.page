@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+  複素解析 &ndash; Note置き場
+
+    </title>
+    
+    
+    <meta name="description" property="og:description" content="">
+    
+
+    <meta name="apple-mobile-web-app-title" content="Note置き場">
+    
+    
+    
+    
+
+
+    <link rel="stylesheet" href="/assets/syntax.css">
+    <link rel="stylesheet" href="/assets/primer-build.css">
+    <link rel="stylesheet" href="/assets/style.css">
+  </head>
+
+
+  <body class="bg-gray">
+    <div id="holy" class="container-lg bg-white h-100">
+
+      <div id="header" class="px-1 bg-white">
+        <nav class="UnderlineNav UnderlineNav--right px-2">
+  <a class="UnderlineNav-actions muted-link h2" href="https://syuheyk.github.io">
+    Note置き場
+  </a>
+
+  
+  
+  <div class="UnderlineNav-body">
+    
+    
+    
+    <a class="UnderlineNav-item " href="/posts/">
+      
+      <span>Notes</span>
+    </a>
+    
+    
+    
+    
+    <a class="UnderlineNav-item " href="/tags/">
+      
+      <span>Tags</span>
+    </a>
+    
+    
+  </div>
+  
+</nav>
+
+      </div>
+
+      <div role="main" id="main" class="holy-main markdown-body px-4 bg-white">
+        
+
+<div>
+
+  <h1>複素解析</h1>
+  
+
+  
+    
+    
+<div class="rounded-2 box-shadow-medium px-3 pb-2 pt-2 mb-3">
+  <div class="Subhead mb-2">
+    <div class="Subhead-heading">
+      <a href="/posts/200115complex1/">
+        <div class="h2 mt-1 mb-1">留数定理までの複素関数論を計算で(&#43;特性関数の計算)</div>
+      </a>
+    </div>
+    <div class="Subhead-description">
+      
+
+
+
+
+<a href='/tags/%E8%A4%87%E7%B4%A0%E8%A7%A3%E6%9E%90' class="muted-link">
+  <span class="Label Label--gray">複素解析</span>
+</a>
+
+<a href='/tags/%E7%A2%BA%E7%8E%87%E8%AB%96' class="muted-link">
+  <span class="Label Label--gray">確率論</span>
+</a>
+
+
+      <div class="float-md-right">
+        <span>2020-01-15</span>
+      </div>
+    </div>
+  </div>
+  <div class="text-gray">
+    
+    神保道夫「複素関数入門」を元に， 留数定理に至る複素関数論の内容を計算部分だけピックアップし， 確率論における確率分布(標準正規分布，Gamma分布，Cauchy分布)の特性関数を求めました．
+目次  微分の定義 複素関数の微分とCauchy-Riemannの方程式 Cauchy-Riemannの方程式の簡便な表示 Cauchyの積分定理  Cauchyの積分定理の適用例 Cauchyの積分定理を使った特性関数の計算(確率論)   Cauchyの積分公式 留数定理  
+微分の定義 まず，確認のため実数値関数$u$の$1$変数の微分の定義を改めて書き下す． $u(x)$が点$x_0$で微分可能のとき，高位の微分小をランダウの記号$o$を用いて， $$\begin{align} u(x)=u(x_0)+a(x-x_0)+o(|x-x_0|),\text{ }(x\rightarrow0) \end{align}$$ と表すことができる．ここで$a$は $$\begin{align} \lim_{h\rightarrow0}\frac{u(x_0+h)-u(x_0)}{h}=a \end{align}$$ で定まる微分係数であり，これが$du/dx(x_0)$と表されるものである． 同様に，$2$変数の実数値関数$u(x,y)$が点$(x_0,y_0)$で微分可能のとき， $$\begin{align} u(x,y)=u(x_0,y_0)+a(x-x_0)+b(y-y_0)+o(\sqrt{(x-x_0)^2+(y-y_0)^2}) \end{align}$$ と表せるとき，偏微分係数$a$と$b$をそれぞれ $$\begin{align} a=\frac{\partial u}{\partial x}(x_0,y_0),\text{ }b=\frac{\partial u}{\partial y}(x_0,y_0) \end{align}$$ と表すことができる．
+
+複素関数の微分とCauchy-Riemannの方程式 複素数を変数にとる複素数値関数$f(z)$の$z_0=z_0+iy_0$において微分可能であるとき， $$\begin{align} f(z)=f(z_0)+\alpha(z-z_0)+o(|z-z_0|), \alpha=\frac{df}{dz}(z_0) \end{align}$$ と表す．$z$,$f$,$\alpha$がそれぞれ， $$\begin{align} z=x+iy,f(z)=u(x,y)+iv(x,y),\alpha=a+ib \end{align}$$ と表されるとき，上記の$2$変数の場合の微分の定義を用いて次式が成り立つ． $$\begin{align} f(z)&=u(x,y)+iv(x,y)\\ &=u(x_0,y_0)+iv(x_0,y_0)+(a+ib)(x+iy-x_0-iy_0)+o(\sqrt{(x-x_0)^2+(y-y_0)^2})\\ &=u(x_0,y_0)+a(x-x_0)-b(y-y_0)+i\left\{v(x_0,y_0)+b(x-x_0)+a(y-y_0)\right\}+o(\sqrt{(x-x_0)^2+(y-y_0)^2}) \end{align}$$ 実部，虚部をそれぞれ抜き出せば $$\begin{align} u(x,y)=u(x_0,y_0)+a(x-x_0)-b(y-y_0)+o(\sqrt{(x-x_0)^2+(y-y_0)^2})\\ v(x,y)=v(x_0,y_0)+b(x-x_0)+a(y-y_0)+o(\sqrt{(x-x_0)^2+(y-y_0)^2}) \end{align}$$ が得られ，各点における偏微分係数に $$\begin{align} \frac{\partial u}{\partial x}(x,y)=\frac{\partial v}{\partial y}(x,y),\text{ }\frac{\partial u}{\partial y}(x,y)=-\frac{\partial v}{\partial x}(x,y) \end{align}$$ と言う関係が成り立つことがわかり，これはCauchy-Riemannの方程式と呼ばれる．
+    <a class="muted-link" href="/posts/200115complex1/">…</a>
+  </div>
+</div>
+
+  
+
+  
+  
+
+
+
+
+</div>
+
+
+      </div>
+
+      <div id="side" class="pr-1 bg-white">
+        <aside class="pr-3">
+          
+  
+
+  <div class="Box Box--blue p-2 mb-3 mt-5">
+    <a href="/tags/" class="link-gray-dark">
+      <h4>Tags</h4>
+    </a>
+    
+    <span class="css-truncate no-wrap m-1 pl-1">
+      <a href="/tags/tex" class="link-gray text-emphasized css-truncate-target"><span class="">Te x</span></a>
+      <span class="text-right Counter">1</span>
+    </span>
+    
+    <span class="css-truncate no-wrap m-1 pl-1">
+      <a href="/tags/mac" class="link-gray text-emphasized css-truncate-target"><span class="">Mac</span></a>
+      <span class="text-right Counter">1</span>
+    </span>
+    
+    <span class="css-truncate no-wrap m-1 pl-1">
+      <a href="/tags/test" class="link-gray text-emphasized css-truncate-target"><span class="">Test</span></a>
+      <span class="text-right Counter">1</span>
+    </span>
+    
+    <span class="css-truncate no-wrap m-1 pl-1">
+      <a href="/tags/%e5%be%ae%e5%88%86%e5%b9%be%e4%bd%95" class="link-gray text-emphasized css-truncate-target"><span class="">微分幾何</span></a>
+      <span class="text-right Counter">1</span>
+    </span>
+    
+    <span class="css-truncate no-wrap m-1 pl-1">
+      <a href="/tags/%e6%b8%ac%e5%ba%a6%e8%ab%96" class="link-gray text-emphasized css-truncate-target"><span class="">測度論</span></a>
+      <span class="text-right Counter">2</span>
+    </span>
+    
+    <span class="css-truncate no-wrap m-1 pl-1">
+      <a href="/tags/%e7%a2%ba%e7%8e%87%e8%ab%96" class="link-gray text-emphasized css-truncate-target"><span class="">確率論</span></a>
+      <span class="text-right Counter">2</span>
+    </span>
+    
+    <span class="css-truncate no-wrap m-1 pl-1">
+      <a href="/tags/%e8%87%aa%e7%84%b6%e8%a8%80%e8%aa%9e%e5%87%a6%e7%90%86" class="link-gray text-emphasized css-truncate-target"><span class="">自然言語処理</span></a>
+      <span class="text-right Counter">1</span>
+    </span>
+    
+    <span class="css-truncate no-wrap m-1 pl-1">
+      <a href="/tags/%e8%a4%87%e7%b4%a0%e8%a7%a3%e6%9e%90" class="link-gray text-emphasized css-truncate-target"><span class="">複素解析</span></a>
+      <span class="text-right Counter">1</span>
+    </span>
+    
+  </div>
+
+
+
+
+
+
+        </aside>
+      </div>
+
+      <div id="footer" class="pt-2 pb-3 bg-white text-center">
+         
+<footer id="footer" class="mt-auto text-center text-muted">
+  <div class="container">
+    
+  </div>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$']]
+      }
+    });
+  </script>
+</footer>
+
+
+
+
+
+      </div>
+    </div>
+
+    
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });</script>
+    
+  </body>
+</html>

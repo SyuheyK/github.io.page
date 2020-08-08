@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>確率論 on Note置き場</title>
+    <link>https://syuheyk.github.io/tags/%E7%A2%BA%E7%8E%87%E8%AB%96/</link>
+    <description>Recent content in 確率論 on Note置き場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>jp</language>
+    <lastBuildDate>Thu, 23 Jan 2020 10:00:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://syuheyk.github.io/tags/%E7%A2%BA%E7%8E%87%E8%AB%96/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Radon-Nikodymの定理のまとめ</title>
+      <link>https://syuheyk.github.io/posts/200123maesure-RadonNikodym/</link>
+      <pubDate>Thu, 23 Jan 2020 10:00:00 +0900</pubDate>
+      
+      <guid>https://syuheyk.github.io/posts/200123maesure-RadonNikodym/</guid>
+      <description>過去にメモしたRadon-Nikodymの定理の証明まとめ． Capinski and Kopp「Measure, Integral and Probability」を元に記載しました．
+可測空間$(\Omega,\mathcal{F})$上の$F\in\mathcal{F}$に対する測度$\nu(F)$が $$\begin{align} F\mapsto\nu(F)=\int_Ffd\mu \end{align}$$ となるような$f$を見つける問題．
+用語 $\nu$と$\mu$はともに可測空間$(\Omega,\mathcal{F})$上の測度とする．
+  絶対連続(absolutely continuous)
+任意の$F\in\mathcal{F}$に対して$\mu(F)=0$ならば$\nu(F)=0$が成り立つならば，$\nu$は$\mu$に対して絶対連続であるといい，$\nu&amp;laquo;\mu$と表す．
+  押さえる(dominate)
+任意の$F\in\mathcal{F}$に対して$0\le\nu(F)\le\mu(F)$が成り立つとき，$\mu$は$\nu$を押さえるという．
+  分割(partition)
+$\mathcal{F}$内の有限な排反部分集合の集まり$\mathcal{P}=(F_i)_{i\le n}$で$\cup_iF_i=\Omega$をみたすものを，(有限可測な)$\Omega$の分割と呼ぶ．
+  細分(refinement)
+2つの分割$\mathcal{P},\mathcal{P&amp;rsquo;}$について，任意の$\mathcal{P}$の要素が$\mathcal{P&amp;rsquo;}$の排反な要素の和集合で表されるとき，$\mathcal{P&amp;rsquo;}$は$\mathcal{P}$の細分と呼ぶ．
+  $\sigma$-有限($\sigma$-finite)
+$\cup_iF_i=\Omega$をみたす$\mathcal{F}$-可測な集合列$(F_i)_{i\ge0}$が存在して，各$i$について$\nu(F_i)$が有限の値をとるとき，$\nu$を$\sigma$-有限な測度と呼ぶ．
+  証明 Radon-Nikodymの定理の証明をするときに，以下の補助定理を使うと便利なので，事前に証明しておきます． Radon-Nikodymの定理との違いは
+ 2つの測度が$\sigma$-有限ではなく，一方がもう片方を押さえているという仮定になっている． 押さえている方の測度$\mu$が全測度で1となる($\mu(\Omega)=1$)． という2点．ただし，結論の形はRadon-Nikodymの定理と同様なのでその雰囲気は掴んでもらえるはず．  補助定理
+任意の$F\in\mathcal{F}$に対して，$\mu(\Omega)=1,0\le\nu(F)\le\mu(F)$が成り立つ，つまり$\mu$は$\nu$を押さえる測度とする． このとき，任意の$F\in\mathcal{F}$に対して， $$\begin{align} \nu(F)=\int_Fhd\mu\tag*{(#1)}\label{eq1} \end{align}$$ をみたす，($\Omega$上の)非負$\mathcal{F}$-可測関数$h$が存在する．
+補助定理の証明 以下のステップで証明する．
+ 分割$\mathcal{P}$に含まれる集合上で$\ref{eq1}$をみたすような$h_\mathcal{P}$を構成する． ついでに$\mathcal{P}_{n+1}$が$\mathcal{P}_n$を細分するような分割の列$\mathcal{P}_1,\mathcal{P}_2,&amp;hellip;$について $$\begin{align} \nu(F)=\int_\Omega h^2_{\mathcal{P}_n}d\mu\tag*{(#2)}\label{eq2} \end{align}$$ が非減少列になることを確認する． 1.の結果および$\ref{eq2}$で定められる列が上限1をもつことから，収束定理を使って， $h_{\mathcal{P}_{n}}$の極限として$\ref{eq1}$をみたす$h$を求めることができる． 2.の方法で定めた$h$が望ましい性質を持つことを確認する．  1.の説明 $A_i\in\mathcal{F}$に対して，$\mathcal{P}={A_1,A_2,&amp;hellip;,A_k}$を$\Omega$の分割とした上で， 以下の様に$A_i$上ではのっぺりするような関数$h_\mathcal{P}$を定める． $$\begin{align} h_\mathcal{P}=\begin{cases} c_i=\dfrac{\nu(A_i)}{\mu(A_i)},\omega\in A_i &amp; \mu(A_i)0\\ 0&amp;\text{otherwise}\\ \end{cases} \end{align}$$ 補助定理の仮定から任意の$F\in\mathcal{F}$に対して$\mu(\Omega)=1,0\le\nu(F)\le\mu(F)$が成り立っていることに注意すると， この関数$h_\mathcal{P}$は以下の性質をもつことがわかる． ただし，$\mathcal{P},\mathcal{P}_1,\mathcal{P}_2$は$\Omega$の分割で$\mathcal{P}_2$は$\mathcal{P}_1$の細分であるとする．</description>
+    </item>
+    
+    <item>
+      <title>留数定理までの複素関数論を計算で(&#43;特性関数の計算)</title>
+      <link>https://syuheyk.github.io/posts/200115complex1/</link>
+      <pubDate>Wed, 15 Jan 2020 10:00:00 +0900</pubDate>
+      
+      <guid>https://syuheyk.github.io/posts/200115complex1/</guid>
+      <description>神保道夫「複素関数入門」を元に， 留数定理に至る複素関数論の内容を計算部分だけピックアップし， 確率論における確率分布(標準正規分布，Gamma分布，Cauchy分布)の特性関数を求めました．
+目次  微分の定義 複素関数の微分とCauchy-Riemannの方程式 Cauchy-Riemannの方程式の簡便な表示 Cauchyの積分定理  Cauchyの積分定理の適用例 Cauchyの積分定理を使った特性関数の計算(確率論)   Cauchyの積分公式 留数定理  
+微分の定義 まず，確認のため実数値関数$u$の$1$変数の微分の定義を改めて書き下す． $u(x)$が点$x_0$で微分可能のとき，高位の微分小をランダウの記号$o$を用いて， $$\begin{align} u(x)=u(x_0)+a(x-x_0)+o(|x-x_0|),\text{ }(x\rightarrow0) \end{align}$$ と表すことができる．ここで$a$は $$\begin{align} \lim_{h\rightarrow0}\frac{u(x_0+h)-u(x_0)}{h}=a \end{align}$$ で定まる微分係数であり，これが$du/dx(x_0)$と表されるものである． 同様に，$2$変数の実数値関数$u(x,y)$が点$(x_0,y_0)$で微分可能のとき， $$\begin{align} u(x,y)=u(x_0,y_0)+a(x-x_0)+b(y-y_0)+o(\sqrt{(x-x_0)^2+(y-y_0)^2}) \end{align}$$ と表せるとき，偏微分係数$a$と$b$をそれぞれ $$\begin{align} a=\frac{\partial u}{\partial x}(x_0,y_0),\text{ }b=\frac{\partial u}{\partial y}(x_0,y_0) \end{align}$$ と表すことができる．
+
+複素関数の微分とCauchy-Riemannの方程式 複素数を変数にとる複素数値関数$f(z)$の$z_0=z_0+iy_0$において微分可能であるとき， $$\begin{align} f(z)=f(z_0)+\alpha(z-z_0)+o(|z-z_0|), \alpha=\frac{df}{dz}(z_0) \end{align}$$ と表す．$z$,$f$,$\alpha$がそれぞれ， $$\begin{align} z=x+iy,f(z)=u(x,y)+iv(x,y),\alpha=a+ib \end{align}$$ と表されるとき，上記の$2$変数の場合の微分の定義を用いて次式が成り立つ． $$\begin{align} f(z)&amp;=u(x,y)+iv(x,y)\\ &amp;=u(x_0,y_0)+iv(x_0,y_0)+(a+ib)(x+iy-x_0-iy_0)+o(\sqrt{(x-x_0)^2+(y-y_0)^2})\\ &amp;=u(x_0,y_0)+a(x-x_0)-b(y-y_0)+i\left\{v(x_0,y_0)+b(x-x_0)+a(y-y_0)\right\}+o(\sqrt{(x-x_0)^2+(y-y_0)^2}) \end{align}$$ 実部，虚部をそれぞれ抜き出せば $$\begin{align} u(x,y)=u(x_0,y_0)+a(x-x_0)-b(y-y_0)+o(\sqrt{(x-x_0)^2+(y-y_0)^2})\\ v(x,y)=v(x_0,y_0)+b(x-x_0)+a(y-y_0)+o(\sqrt{(x-x_0)^2+(y-y_0)^2}) \end{align}$$ が得られ，各点における偏微分係数に $$\begin{align} \frac{\partial u}{\partial x}(x,y)=\frac{\partial v}{\partial y}(x,y),\text{ }\frac{\partial u}{\partial y}(x,y)=-\frac{\partial v}{\partial x}(x,y) \end{align}$$ と言う関係が成り立つことがわかり，これはCauchy-Riemannの方程式と呼ばれる．</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+  留数定理までの複素関数論を計算で(&#43;特性関数の計算) &ndash; Note置き場
+
+    </title>
+    
+    
+    <meta name="description" property="og:description" content="神保道夫「複素関数入門」を元に， 留数定理に至る複素関数論の内容を計算部分だけピックアップし， 確率論における確率分布(標準正規分布，Gamma分布，Cauchy分布)の特性関数を求めました．
+目次  微分の定義 複素関数の微分とCauchy-Riemannの方程式 Cauchy-Riemannの方程式の簡便な表示 Cauchyの積分定理  Cauchyの積分定理の適用例 Cauchyの積分定理を使った特性関数の計算(確率論)   Cauchyの積分公式 留数定理  
+微分の定義 まず，確認のため実数値関数$u$の$1$変数の微分の定義を改めて書き下す． $u(x)$が点$x_0$で微分可能のとき，高位の微分小をランダウの記号$o$を用いて， $$\begin{align} u(x)=u(x_0)&#43;a(x-x_0)&#43;o(|x-x_0|),\text{ }(x\rightarrow0) \end{align}$$ と表すことができる．ここで$a$は $$\begin{align} \lim_{h\rightarrow0}\frac{u(x_0&#43;h)-u(x_0)}{h}=a \end{align}$$ で定まる微分係数であり，これが$du/dx(x_0)$と表されるものである． 同様に，$2$変数の実数値関数$u(x,y)$が点$(x_0,y_0)$で微分可能のとき， $$\begin{align} u(x,y)=u(x_0,y_0)&#43;a(x-x_0)&#43;b(y-y_0)&#43;o(\sqrt{(x-x_0)^2&#43;(y-y_0)^2}) \end{align}$$ と表せるとき，偏微分係数$a$と$b$をそれぞれ $$\begin{align} a=\frac{\partial u}{\partial x}(x_0,y_0),\text{ }b=\frac{\partial u}{\partial y}(x_0,y_0) \end{align}$$ と表すことができる．
+
+複素関数の微分とCauchy-Riemannの方程式 複素数を変数にとる複素数値関数$f(z)$の$z_0=z_0&#43;iy_0$において微分可能であるとき， $$\begin{align} f(z)=f(z_0)&#43;\alpha(z-z_0)&#43;o(|z-z_0|), \alpha=\frac{df}{dz}(z_0) \end{align}$$ と表す．$z$,$f$,$\alpha$がそれぞれ， $$\begin{align} z=x&#43;iy,f(z)=u(x,y)&#43;iv(x,y),\alpha=a&#43;ib \end{align}$$ と表されるとき，上記の$2$変数の場合の微分の定義を用いて次式が成り立つ． $$\begin{align} f(z)&amp;=u(x,y)&#43;iv(x,y)\\ &amp;=u(x_0,y_0)&#43;iv(x_0,y_0)&#43;(a&#43;ib)(x&#43;iy-x_0-iy_0)&#43;o(\sqrt{(x-x_0)^2&#43;(y-y_0)^2})\\ &amp;=u(x_0,y_0)&#43;a(x-x_0)-b(y-y_0)&#43;i\left\{v(x_0,y_0)&#43;b(x-x_0)&#43;a(y-y_0)\right\}&#43;o(\sqrt{(x-x_0)^2&#43;(y-y_0)^2}) \end{align}$$ 実部，虚部をそれぞれ抜き出せば $$\begin{align} u(x,y)=u(x_0,y_0)&#43;a(x-x_0)-b(y-y_0)&#43;o(\sqrt{(x-x_0)^2&#43;(y-y_0)^2})\\ v(x,y)=v(x_0,y_0)&#43;b(x-x_0)&#43;a(y-y_0)&#43;o(\sqrt{(x-x_0)^2&#43;(y-y_0)^2}) \end{align}$$ が得られ，各点における偏微分係数に $$\begin{align} \frac{\partial u}{\partial x}(x,y)=\frac{\partial v}{\partial y}(x,y),\text{ }\frac{\partial u}{\partial y}(x,y)=-\frac{\partial v}{\partial x}(x,y) \end{align}$$ と言う関係が成り立つことがわかり，これはCauchy-Riemannの方程式と呼ばれる．|">
+    
+
+    <meta name="apple-mobile-web-app-title" content="Note置き場">
+    
+    
+    
+    
+
+
+    <link rel="stylesheet" href="/assets/syntax.css">
+    <link rel="stylesheet" href="/assets/primer-build.css">
+    <link rel="stylesheet" href="/assets/style.css">
+  </head>
+
+
+  <body class="bg-gray">
+    <div id="holy" class="container-lg bg-white h-100">
+
+      <div id="header" class="px-1 bg-white">
+        <nav class="UnderlineNav UnderlineNav--right px-2">
+  <a class="UnderlineNav-actions muted-link h2" href="https://syuheyk.github.io">
+    Note置き場
+  </a>
+
+  
+  
+  <div class="UnderlineNav-body">
+    
+    
+    
+    <a class="UnderlineNav-item " href="/posts/">
+      
+      <span>Notes</span>
+    </a>
+    
+    
+    
+    
+    <a class="UnderlineNav-item " href="/tags/">
+      
+      <span>Tags</span>
+    </a>
+    
+    
+  </div>
+  
+</nav>
+
+      </div>
+
+      <div role="main" id="main" class="holy-main markdown-body px-4 bg-white">
+        
+
+<div class="Subhead">
+  <div class="Subhead-heading">
+    <div class="h1 mt-3 mb-1">留数定理までの複素関数論を計算で(&#43;特性関数の計算)</div>
+  </div>
+  <div class="Subhead-description">
+    
+
+
+
+
+<a href='/tags/%E8%A4%87%E7%B4%A0%E8%A7%A3%E6%9E%90' class="muted-link">
+  <span class="Label Label--gray">複素解析</span>
+</a>
+
+<a href='/tags/%E7%A2%BA%E7%8E%87%E8%AB%96' class="muted-link">
+  <span class="Label Label--gray">確率論</span>
+</a>
+
+
+
+    
+    <div class="float-md-right">
+      <span title="Lastmod: 2020-01-15. Published at: 2020-01-15.">
+        
+          Published: 2020-01-15
+        
+      </span>
+    </div>
+    
+  </div>
+</div>
+<article>
+  
+  <section class="pb-6 mb-3 border-bottom">
+    <p><a href="https://www.iwanami.co.jp/book/b259037.html">神保道夫「複素関数入門」</a>を元に，
+留数定理に至る複素関数論の内容を計算部分だけピックアップし，
+確率論における確率分布(標準正規分布，Gamma分布，Cauchy分布)の特性関数を求めました．</p>
+<h2 id="目次">目次</h2>
+<ul>
+<li><a href="#001">微分の定義</a></li>
+<li><a href="#002">複素関数の微分とCauchy-Riemannの方程式</a></li>
+<li><a href="#003">Cauchy-Riemannの方程式の簡便な表示</a></li>
+<li><a href="#004">Cauchyの積分定理</a>
+<ul>
+<li><a href="#005">Cauchyの積分定理の適用例</a></li>
+<li><a href="#007">Cauchyの積分定理を使った特性関数の計算(確率論)</a></li>
+</ul>
+</li>
+<li><a href="#006">Cauchyの積分公式</a></li>
+<li><a href="#008">留数定理</a></li>
+</ul>
+<p><a id="markdown-001" name="001"></a></p>
+<h2 id="微分の定義">微分の定義</h2>
+<p>まず，確認のため実数値関数$u$の$1$変数の微分の定義を改めて書き下す．
+$u(x)$が点$x_0$で微分可能のとき，高位の微分小をランダウの記号$o$を用いて，
+<div>$$\begin{align}
+  
+    u(x)=u(x_0)+a(x-x_0)+o(|x-x_0|),\text{ }(x\rightarrow0)
+
+\end{align}$$</div>
+と表すことができる．ここで$a$は
+<div>$$\begin{align}
+  
+    \lim_{h\rightarrow0}\frac{u(x_0+h)-u(x_0)}{h}=a
+
+\end{align}$$</div>
+で定まる微分係数であり，これが$du/dx(x_0)$と表されるものである．
+同様に，$2$変数の実数値関数$u(x,y)$が点$(x_0,y_0)$で微分可能のとき，
+<div>$$\begin{align}
+  
+    u(x,y)=u(x_0,y_0)+a(x-x_0)+b(y-y_0)+o(\sqrt{(x-x_0)^2+(y-y_0)^2})
+
+\end{align}$$</div>
+と表せるとき，偏微分係数$a$と$b$をそれぞれ
+<div>$$\begin{align}
+  
+    a=\frac{\partial u}{\partial x}(x_0,y_0),\text{ }b=\frac{\partial u}{\partial y}(x_0,y_0)
+
+\end{align}$$</div>
+と表すことができる．</p>
+<p><a id="markdown-002" name="002"></a></p>
+<h2 id="複素関数の微分とcauchy-riemannの方程式">複素関数の微分とCauchy-Riemannの方程式</h2>
+<p>複素数を変数にとる複素数値関数$f(z)$の$z_0=z_0+iy_0$において微分可能であるとき，
+<div>$$\begin{align}
+  
+    f(z)=f(z_0)+\alpha(z-z_0)+o(|z-z_0|), \alpha=\frac{df}{dz}(z_0)
+
+\end{align}$$</div>
+と表す．$z$,$f$,$\alpha$がそれぞれ，
+<div>$$\begin{align}
+  
+    z=x+iy,f(z)=u(x,y)+iv(x,y),\alpha=a+ib
+
+\end{align}$$</div>
+と表されるとき，上記の$2$変数の場合の微分の定義を用いて次式が成り立つ．
+<div>$$\begin{align}
+  
+    f(z)&=u(x,y)+iv(x,y)\\
+    &=u(x_0,y_0)+iv(x_0,y_0)+(a+ib)(x+iy-x_0-iy_0)+o(\sqrt{(x-x_0)^2+(y-y_0)^2})\\
+    &=u(x_0,y_0)+a(x-x_0)-b(y-y_0)+i\left\{v(x_0,y_0)+b(x-x_0)+a(y-y_0)\right\}+o(\sqrt{(x-x_0)^2+(y-y_0)^2})
+
+\end{align}$$</div>
+実部，虚部をそれぞれ抜き出せば
+<div>$$\begin{align}
+  
+    u(x,y)=u(x_0,y_0)+a(x-x_0)-b(y-y_0)+o(\sqrt{(x-x_0)^2+(y-y_0)^2})\\
+    v(x,y)=v(x_0,y_0)+b(x-x_0)+a(y-y_0)+o(\sqrt{(x-x_0)^2+(y-y_0)^2})
+
+\end{align}$$</div>
+が得られ，各点における偏微分係数に
+<div>$$\begin{align}
+  
+    \frac{\partial u}{\partial x}(x,y)=\frac{\partial v}{\partial y}(x,y),\text{ }\frac{\partial u}{\partial y}(x,y)=-\frac{\partial v}{\partial x}(x,y)
+
+\end{align}$$</div>
+と言う関係が成り立つことがわかり，これはCauchy-Riemannの方程式と呼ばれる．</p>
+<p>関数$f(z)$が複素関数として微分可能であるための必要十分条件は，その複素関数の実部と虚部が実数関数の意味で微分可能であって，かつ偏微分係数の間にCauchy_Riemannの方程式が成り立つことである．
+また，領域$\mathcal{D}$内で定義された複素関数$f(z)$が複素関数として微分可能であるとき，$f(z)$は正則である，あるいは$f(z)$のことを正則関数と呼ぶ．</p>
+<p><a id="markdown-003" name="003"></a></p>
+<h2 id="cauchy-riemannの方程式の簡便な表示">Cauchy-Riemannの方程式の簡便な表示</h2>
+<p>$z=x+iy$が決まっているならば$\overline{z}=x-iy$も決まることから，
+$x,y$を独立変数とみなすのではなく，$z,\overline{z}$が独立変数であるとみなして計算を行ってみる．
+このとき，
+<div>$$\begin{align}
+  
+    x=\frac{z+\overline{z}}{2},y=\frac{z-\overline{z}}{2i}
+
+\end{align}$$</div>
+に注意すれば，変数変換の公式と合成関数の微分から
+<div>$$\begin{align}
+  
+    \frac{\partial f}{\partial z}
+        =\frac{\partial f}{\partial x}\cdot\frac{\partial x}{\partial z}+\frac{\partial f}{\partial y}\cdot\frac{\partial y}{\partial z}
+        =\frac{1}{2}\frac{\partial f}{\partial x}+\frac{1}{2i}\frac{\partial f}{\partial y}
+        =\frac{1}{2}\left(\frac{\partial}{\partial x}-i\frac{\partial}{\partial y}\right)f\\
+    \frac{\partial f}{\partial\overline{z}}
+        =\frac{\partial f}{\partial x}\cdot\frac{\partial x}{\partial \overline{z}}+\frac{\partial f}{\partial y}\cdot\frac{\partial y}{\partial \overline{z}}
+        =\frac{1}{2}\frac{\partial f}{\partial x}-\frac{1}{2i}\frac{\partial f}{\partial y}
+        =\frac{1}{2}\left(\frac{\partial}{\partial x}+i\frac{\partial}{\partial y}\right)f
+
+\end{align}$$</div>
+が得られる．微分する複素数値関数$f$が実部と虚部に分けて$f(z)=u(x,y)+iv(x,y)$と表されるとき，$z$および$\overline{z}$による微分は以下のとおり表すことができる．
+<div>$$\begin{align}
+  
+    \frac{\partial f}{\partial z}
+        =\frac{1}{2}\left(\frac{\partial}{\partial x}-i\frac{\partial}{\partial y}\right)(u+iv)
+        =\frac{1}{2}\left(\frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}\right)
+        -\frac{i}{2}\left(\frac{\partial u}{\partial y}-\frac{\partial v}{\partial x}\right)\\
+    \frac{\partial f}{\partial\overline{z}}
+        =\frac{1}{2}\left(\frac{\partial}{\partial x}+i\frac{\partial}{\partial y}\right)(u+iv)
+        =\frac{1}{2}\left(\frac{\partial u}{\partial x}-\frac{\partial v}{\partial y}\right)
+        +\frac{i}{2}\left(\frac{\partial u}{\partial y}+\frac{\partial v}{\partial x}\right)
+
+\end{align}$$</div>
+この表式を使えば，Cauchy-Riemannの方程式は簡便に
+<div>$$\begin{align}
+  
+    \frac{\partial f}{\partial\overline{z}}(z)=0
+
+\end{align}$$</div>
+と書き表すことができる．</p>
+<p><a id="markdown-004" name="004"></a></p>
+<h2 id="cauchyの積分定理">Cauchyの積分定理</h2>
+<p>$C^1$級の複素数値関数$f$を$4$点$0,a,ib,a+ib$を頂点とする長方形に沿って積分する．
+積分路の長方形の各辺には下図のように記号をつけることとする．</p>
+<div align="center">
+<figure class="center">
+    <img src="/image/20200116_complex_int1.jpg"/> 
+</figure>
+
+</div>
+このとき，
+<p><div>$$\begin{align}
+  
+    \int_{C_1}f(z)dz=\int_0^af(x)dx,\hspace{15pt} \int_{C_1'}f(z)dz=\int_0^af(x+ib)dx
+
+\end{align}$$</div>
+より
+<div>$$\begin{align}
+  
+    \int_{C_1}f(z)dz-\int_{C_1'}f(z)dz
+        &=\int_0^a\left(f(x)-f(x+ib)\right)dx\\
+        &=\int_0^a\left(\int_0^b\left(-\frac{\partial}{\partial y}f(x+iy)\right)dy\right)dx\\
+        &=\int_0^a\left(\int_0^b\left(i\frac{\partial}{\partial y}f(x+iy)\right)idy\right)dx.
+
+\end{align}$$</div>
+同様にして，
+<div>$$\begin{align}
+  
+    \int_{C_2}f(z)dz-\int_{C_2'}f(z)dz
+        &=\int_0^b\left(f(a+iy)-f(iy)\right)dx\\
+        &=\int_0^b\left(\int_0^a\left(\frac{\partial}{\partial x}f(x+iy)\right)dx\right)idy.
+
+\end{align}$$</div>
+ゆえに長方形を領域$\mathcal{D}$，その周囲に正の向きをつけたものを$C$で表せば，
+<div>$$\begin{align}
+  
+    \int_Cf(z)dz
+        =\int_0^a\int_0^b\left(\frac{\partial}{\partial x}+i\frac{\partial}{\partial y}\right)f(x+iy)dxidy
+        =2i\iint_\mathcal{D}\frac{\partial}{\partial\overline{z}}f(z)dxdy
+
+\end{align}$$</div>
+となる．長方形でない一般の領域に対しては長方形をつなぎ合わせたグリーンの公式を用いることで示すことができるが，ここでは割愛する．</p>
+<p>また上式において，
+複素関数$f(z)$が境界$\partial\mathcal{D}$を含む領域$\mathcal{D}\cup\partial\mathcal{D}$内で正則であるならば，
+Cauchy-Riemannの方程式から
+<div>$$\begin{align}
+  
+    \int_{\partial\mathcal{D}}f(z)dz=0
+
+\end{align}$$</div>
+であることがわかる(66頁 定理 3.20)．この事実をCauchyの積分定理と呼ぶ．
+単純閉曲線$C$に沿っての積分を
+<div>$$\begin{align}
+  
+    \oint_Cf(z)dz
+
+\end{align}$$</div>
+と書き，特に$C$が円周のときは
+<div>$$\begin{align}
+  
+    \oint_{|z-a|=R}f(z)dz
+
+\end{align}$$</div>
+などと書く．</p>
+<p><a id="markdown-005" name="005"></a></p>
+<h3 id="cauchyの積分定理の適用例">Cauchyの積分定理の適用例</h3>
+<p><strong>(66頁 例 3.22)</strong><br>
+$|z-c|\le R$を含む領域で開円板内の$1$点$a$を例外として正則な関数$f(z)$があるとする．
+このとき点$a$のまわりに$|z-c|&lt; R$に含まれるように小さい円$|z-a|=\varepsilon$をとれば，
+<div>$$\begin{align}
+  
+    \oint_{|z-c|=R}f(z)dz=\oint_{|z-a|=\varepsilon}f(z)dz.
+
+\end{align}$$</div>
+実際，それぞれの円周の正の向きを$C_R:|z-c|=R,C_\varepsilon:|z-a|=\varepsilon$とし,
+$C_R$から$C_\varepsilon$を除いた領域を$\mathcal{D}$とすれば，その外側を正の向きとする境界$\partial\mathcal{D}$は$C_R$と$C_\varepsilon^{-1}$からなるので
+<div>$$\begin{align}
+  
+    0=\int_{\partial\mathcal{D}}f(z)dz=\oint_{|z-c|=R}f(z)dz=\oint_{|z-a|-\varepsilon}f(z)dz.
+
+\end{align}$$</div></p>
+<p><strong>(67頁 例題 3.23)</strong><br>
+半径$r$の円周上で，整数$n$に対して$(z-a)^n$を計算すると，
+<div>$$\begin{align}
+  
+    \oint_{|z-a|=r}(z-a)^ndz
+        =\begin{cases}
+            2\pi i & \text{(}n=-1\text{のとき)}\\
+            0 & \text{(それ以外のとき)}\\
+        \end{cases}.
+
+\end{align}$$</div>
+まず，$n\ge0$のときは被積分関数は正則関数だから積分値が$0$であることは明らか．
+$n&lt; 0$のとき被積分関数は$z=a$で正則でなくなる．実際に計算してみると，
+$z=a+re^{i\theta}$とおくと，$dz=rie^{i\theta}d\theta$から
+<div>$$\begin{align}
+  
+    \oint_{|z-a|=r}(z-a)^ndz=\int_0^{2\pi}r^ne^{in\theta}rie^{i\theta}d\theta=ir^{n+1}\int_0^{2\pi}e^{(n+1)i\theta}d\theta
+
+\end{align}$$</div>
+と計算できる．したがって，$n+1=0$ならば右辺は明らかに$2\pi i$となる．また，$n+1\neq0$ならば
+<div>$$\begin{align}
+  
+    \int_0^{2\pi}e^{(n+1)i\theta}d\theta=\int_0^{2\pi}\frac{1}{i(n+1)}\frac{d}{d\theta}e^{(n+1)i\theta}d\theta=0
+
+\end{align}$$</div>
+となる．積分値は半径$r$によらないことに注意．</p>
+<p><a id="markdown-007" name="007"></a></p>
+<h3 id="cauchyの積分定理を使った特性関数の計算確率論">Cauchyの積分定理を使った特性関数の計算(確率論)</h3>
+<h5 id="標準正規分布の特性関数の計算">標準正規分布の特性関数の計算</h5>
+<p>標準正規分布の確率密度関数は
+<div>$$\begin{align}
+  
+    f(x) = \frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}, (-\infty< x<\infty)
+
+\end{align}$$</div>
+より，計算する積分は
+<div>$$\begin{align}
+  
+    \varphi_X(u)=\mathbb{E}\left[ e^{iuX} \right]=\int_{-\infty}^{\infty}e^{iux}f(x)dx=\int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}+iux}dx.
+
+\end{align}$$</div>
+指数の肩を平方完成することで
+<div>$$\begin{align}
+  
+    \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{-\frac{x^2}{2}+iux}dx
+        &=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{-\frac{1}{2}\left\{x^2-2iux-u^2+u^2\right\}}dx\\
+        &=\frac{e^{-\frac{u^2}{2}}}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{-\frac{1}{2}(x-iu)^2}dx
+
+\end{align}$$</div>
+と変形できる．そこで，被積分関数を$f(z)=e^{\frac{z^2}{2}}$とし下図の経路$C＝C_1+C_2+C_3+C_4$に沿って積分する．</p>
+<div align="center">
+<figure class="center">
+    <img src="/image/20200121_complex_int2.jpg"/> 
+</figure>
+
+</div>
+各経路$C_n$の積分値を$I_{C_n}(R)=\int_{C_n}f(z)dz$とおく．
+はじめに$C_2$に沿った積分を計算しておくと，
+<div>$$\begin{align}
+  
+I_{C_2}(R)
+    &=\int_{C_2}f(z)dz
+    =\int_{-R}^{-R-iu}e^{-\frac{z^2}{2}}dz
+    =\int_{0}^{-u}e^{-\frac{(-R+iy)^2}{2}}dy
+
+\end{align}$$</div>
+と計算できる．したがって，積分値は以下の様に押さえることができる．
+<div>$$\begin{align}
+  
+\left|\int_{C_2}f(z)dz\right|
+    &\le\int_{0}^{-u}\left|e^{-\frac{(-R+iy)^2}{2}}\right|dy\\
+    &=\int_{0}^{-u}\left|e^{-\frac{1}{2}(R^2-2iRy-y^2)}\right|dy\\
+    &=\int_{0}^{-u}\left|e^{-\frac{1}{2}R^2}\right|\cdot\left|e^{iRy}\right|\cdot\left|e^{\frac{y^2}{2}}\right|dy
+
+\end{align}$$</div>
+ここで，被積分関数は$\left|e^{iRy}\right|=1$，$|e^{\frac{y^2}{2}}|$は$R$に依らず，
+$|e^{-\frac{1}{2}R^2}|$は$R\rightarrow\infty$とすると急速に$0$に収束することから，
+$R\rightarrow\infty$のとき積分値は$I_{C_2}(R)$は$0$に収束することがわかる．
+経路$C_4$についても同様に$R\rightarrow\infty$のとき$I_{C_4}(R)\rightarrow0$となる．
+<p>また経路$C_1$は
+<div>$$\begin{align}
+  
+I_{C_1}(R)=\int_{C_1}f(z)dz=\int_R^{-R}e^{-\frac{x^2}{2}}dx
+
+\end{align}$$</div>
+となり，Gauss積分から$R\rightarrow\infty$のときこの積分値は$-\sqrt{2\pi}$となる．
+経路$C_3$については
+<div>$$\begin{align}
+  
+I_{C_3}(R)=\int_{C_3}f(z)dz=\int_{-R-iu}^{R-iu}e^{\frac{z^2}{2}}dz=\int_{-R}^{R}e^{\frac{1}{2}(x-iu)^2}dx.
+
+\end{align}$$</div></p>
+<p>Cauchyの積分定理から
+<div>$$\begin{align}
+  
+    I_{C_1}(R)+I_{C_2}(R)+I_{C_3}(R)+I_{C_4}(R)=0
+
+\end{align}$$</div>
+が成り立つので，この両辺で$R\rightarrow\infty$ととれば，
+<div>$$\begin{align}
+  
+\lim_{R\rightarrow\infty}I_{C_1}(R)+\lim_{R\rightarrow\infty}I_{C_3}(R)=-\sqrt{2\pi}+\int_{-\infty}^{\infty}e^{\frac{1}{2}(x-iu)^2}dx&=0
+
+\end{align}$$</div>
+したがって，両辺に$e^{-\frac{u^2}{2}}$をかけて整理すれば，元々求めたかった積分
+<div>$$\begin{align}
+  
+\varphi_X(u)=\frac{e^{-\frac{u^2}{2}}}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\frac{}e^{\frac{1}{2}(x-iu)^2}dx&=e^{-\frac{u^2}{2}}
+
+\end{align}$$</div>
+が得られる．</p>
+<h5 id="gamma分布の特性関数の計算">Gamma分布の特性関数の計算</h5>
+<p>Gamma分布の確率密度関数は
+<div>$$\begin{align}
+  
+    f(x) = \frac{\beta^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\beta x}, (0< x<\infty,\alpha>0,\beta>0)
+
+\end{align}$$</div>
+より，計算する積分は
+<div>$$\begin{align}
+  
+    \varphi_X(u)=\mathbb{E}\left[ e^{iuX} \right]=\int_0^{\infty}e^{iux}f(x)dx
+    =\int_{-\infty}^{\infty}\frac{\beta^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-(\beta-iu)x}dx.
+
+\end{align}$$</div>
+ここでは，被積分関数を$f(z)=z^{\alpha-1}e^{-\beta z}$として下図の経路$C=C_1+C_2+C_3$に沿って積分する．</p>
+<div align="center">
+<figure class="center">
+    <img src="/image/20200121_complex_int3.jpg"/> 
+</figure>
+
+</div>
+各経路$C_n$の積分値を$I_{C_n}(R)=\int_{C_n}f(z)dz$とおき，まず$I_{C_1}(R)$は
+<div>$$\begin{align}
+  
+I_{C_1}(R)&=\int_{C_1}f(z)dz=\int_R^0x^{\alpha-1}e^{-\beta x}dx
+
+\end{align}$$</div>
+ここで$R\rightarrow\infty$とすれば，積分値は$-\Gamma(\alpha)/\beta^\alpha$となる．
+また，$I_{C_2}(R)$は
+<div>$$\begin{align}
+  
+I_{C_2}(R)
+    &=\int_{C_2}f(z)dz\\
+    &=\int_0^{R-i\frac{u}{\beta}R}z^{\alpha-1}e^{-\beta z}dz\\
+    &=\int_0^R\left\{\left(1-i\frac{u}{\beta}\right)x\right\}^{\alpha-1}e^{-\beta\left(1-i\frac{u}{\beta}\right)x}\left(1-i\frac{u}{\beta}\right)dx\\
+    &=\left(\frac{\beta-iu}{\beta}\right)^{\alpha}\int_0^Rx^{\alpha}e^{-(\beta-iu)x}dx
+
+\end{align}$$</div>
+となる．$I_{C_3}(R)$については
+<div>$$\begin{align}
+  
+I_{C_3}(R)
+    &=\int_{C_3}f(z)dz
+    =\int_{R-i\frac{u}{\beta}R}^Rz^{\alpha-1}e^{\beta z}dz
+    =\int_{-\frac{u}{\beta}R}^0(R+iy)^{\alpha-1}e^{-\beta(R+iy)}dy
+
+\end{align}$$</div>
+より，この積分値を評価すると
+<div>$$\begin{align}
+  
+\left|I_{C_3}(R)\right|
+    &\le\int_{-\frac{u}{\beta}R}^0\left|(R+iy)^{\alpha-1}e^{-\beta(R+iy)}\right|dy\\
+    &=\int_{-\frac{u}{\beta}R}^0\left|(R+iy)^{\alpha-1}\right|\left|e^{-\beta R}\right|\left|e^{-i\beta y}\right|dy
+
+\end{align}$$</div>
+となる．被積分関数は$\left|e^{-i\beta y}\right|=1$で，
+$\left|(R+iy)^{\alpha-1}\right|$は$R$に比例して増大するものの，
+$\left|e^{-\beta R}\right|$の$R$に比例して減少する速度が勝るため，
+被積分関数全体として，$R\rightarrow\infty$とすると$0$に収束する．
+したがって，積分値も$R\rightarrow\infty$とすれば，$0$に収束する．
+以上を元に，Cauchyの積分定理から
+<div>$$\begin{align}
+  
+    I_{C_1}(R)+I_{C_2}(R)+I_{C_3}(R)=0
+
+\end{align}$$</div>
+が成り立つので，この両辺で$R\rightarrow\infty$ととれば，
+<div>$$\begin{align}
+  
+\lim_{R\rightarrow\infty}I_{C_1}(R)+\lim_{R\rightarrow\infty}I_{C_2}(R)
+    =-\frac{\Gamma(\alpha)}{\beta^\alpha}+\left(\frac{\beta-iu}{\beta}\right)^{\alpha}\int_0^\infty x^{\alpha-1}e^{-(\beta-iu)x}dx=0
+
+\end{align}$$</div>
+したがって，上式を整理すれば，求める積分
+<div>$$\begin{align}
+  
+\varphi_X(u)=\int_0^\infty\frac{\beta^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-(\beta-iu)x}dx=\left(\frac{\beta}{\beta-iu}\right)^\alpha
+
+\end{align}$$</div>
+が得られる．
+<p><a id="markdown-006" name="006"></a></p>
+<h2 id="cauchyの積分公式">Cauchyの積分公式</h2>
+<p>$z\in\mathbb{C}$のときに，新たな複素関数
+<div>$$\begin{align}
+  
+    g(\zeta)=\frac{f(\zeta)}{\zeta-z}
+
+\end{align}$$</div>
+を積分してみる．$z$を中心とした半径$R$の円を積分経路として積分計算を行うと，$\varepsilon&gt;0$に対して
+<div>$$\begin{align}
+  
+    \oint_{|\zeta-z|=R}g(\zeta)d\zeta
+        &= \oint_{|\zeta-z|=\varepsilon}g(\zeta)d\zeta\\
+        &= \oint_{|\zeta-z|=\varepsilon}\frac{f(\zeta)}{\zeta-z}d\zeta
+
+\end{align}$$</div>
+となる．ここで，$\zeta=z+\varepsilon e^{i\theta}$と変換すると，$d\zeta=i\varepsilon e^{i\theta}d\theta$より
+<div>$$\begin{align}
+  
+    &= \int_0^{2\pi}\frac{f(z+\varepsilon e^{i\theta})}{z+\varepsilon e^{i\theta}-z}i\varepsilon e^{i\theta}d\theta\\
+    &= i\int_0^{2\pi}f(z+\varepsilon e^{i\theta})d\theta\\
+    &\rightarrow i\int_0^{2\pi}f(z)d\theta,\text{ }(\varepsilon\rightarrow0)\\
+    &= 2\pi if(z).
+
+\end{align}$$</div>
+最左辺は$\varepsilon$に依らないため，上式を整理すれば，
+<div>$$\begin{align}
+  
+    f(z)=\oint_{|\zeta-z|=R}g(\zeta)\frac{d\zeta}{2\pi i}
+
+\end{align}$$</div>
+が得られる．この式をCauchyの積分公式と呼ぶ．</p>
+<p>また，閉円板$\overline{D}(c;R)$上の連続関数$f(z)$に対してCauchyの積分公式が成り立っているとして，
+分母の$1/(\zeta-z)$を幾何級数に展開すると
+<div>$$\begin{align}
+  
+\frac{1}{(\zeta-c)-(z-c)}=\frac{1}{(\zeta-c)\left(1-\frac{z-c}{\zeta-c}\right)}=\frac{1}{\zeta-c}+\frac{z-c}{\zeta-c}\frac{1}{(\zeta-c)-(z-c)}
+
+\end{align}$$</div>
+より，
+<div>$$\begin{align}
+  
+\frac{1}{\zeta-z}
+    &=\frac{1}{(\zeta-c)-(z-c)}\\
+    &=\frac{1}{\zeta-c}+\frac{z-c}{\zeta-c}\frac{1}{(\zeta-c)-(z-c)}\\
+    &=\frac{1}{\zeta-c}+\frac{z-c}{\zeta-c}\left(\frac{1}{\zeta-c}+\frac{z-c}{\zeta-c}\frac{1}{(\zeta-c)-(z-c)}\right)\\
+    &=\frac{1}{\zeta-c}+\frac{z-c}{(\zeta-c)^2}+\left(\frac{z-c}{\zeta-c}\right)^2\left(\frac{1}{\zeta-c}+\frac{z-c}{\zeta-c}\frac{1}{(\zeta-c)-(z-c)}\right)\\
+    &=\frac{1}{\zeta-c}+\frac{z-c}{(\zeta-c)^2}+\frac{(z-c)^2}{(\zeta-c)^3}+\cdots\\
+    &=\sum_{n=0}^\infty\frac{(z-c)^n}{(\zeta-c)^{n+1}}
+
+\end{align}$$</div>
+となる．収束性をおいておけば，Cauchyの積分公式は以下の様に展開できることがわかったことになる．
+<div>$$\begin{align}
+  
+f(z)=\oint_{|\zeta-c|=R}\frac{f(\zeta)}{\zeta-z}\frac{d\zeta}{2\pi i}=\sum_{n=0}^\infty(z-c)^n\oint_{|\zeta-c|=R}\frac{f(\zeta)}{(\zeta-c)^{n+1}}\frac{d\zeta}{2\pi i}.
+
+\end{align}$$</div></p>
+<p><a id="markdown-008" name="008"></a></p>
+<h2 id="留数定理">留数定理</h2>
+<p>Cauchyの積分公式(によるベキ級数展開)から積分計算を効率的に行える．
+関数$f(z)$は単純閉曲線$C$の内部で有限個の孤立特異点$c_1,&hellip;,c_N$を持つほかは$C$上で正則であるとする．
+このとき，$C$に沿った$f(z)$の積分は以下の手続きにしたがって，計算することができる．</p>
+<p><strong>step 1.</strong><br>
+各$c_j$のまわりに正の向きの小円$C_j$を，内部に他の特異点が入らないように描く．</p>
+<p><strong>step 2.</strong><br>
+積分経路変形の原理から
+<div>$$\begin{align}
+  
+\oint_Cf(z)\frac{dz}{2\pi i}=\sum_{j=1}^N\oint_{C_j}f(z)\frac{dz}{2\pi i}.
+
+\end{align}$$</div></p>
+<p><strong>step 3.</strong><br>
+$z=c_j$でのローラン展開を$f(z)=\sum_{n=-\infty}^\infty a_n^{(j)}(z-c_j)^n$とすれば，
+<div>$$\begin{align}
+  
+\oint_Cf(z)\frac{dz}{2\pi i}=\sum_{n=-\infty}^\infty a_n^{(j)}\oint_{C_j}(z-c_j)^n\frac{dz}{2\pi i}.
+
+\end{align}$$</div></p>
+<p><strong>step 4.</strong><br>
+例3.23(67頁)より，右辺では$n=-1$のみが残るので，求める積分は$\sum_{j=1}^Na_{-1}^{(j)}$</p>
+<h2 id="参考資料">参考資料</h2>
+<ul>
+<li><a href="https://www.iwanami.co.jp/book/b259037.html">神保道夫「複素関数入門」</a></li>
+<li><a href="https://www.springer.com/gp/book/9783540438717">Jacod and Protter「Probatility Essentials」</a></li>
+<li><a href="https://math.stackexchange.com/questions/2949892/how-do-i-find-a-closed-form-of-the-characteristic-function-of-gamma-distribution">Gamma分布の特性関数の導出</a></li>
+<li><a href="https://math.stackexchange.com/questions/86041/characteristic-function-of-a-standard-normal-random-variable">標準正規分布の特性関数の導出</a></li>
+</ul>
+
+  </section>
+
+  <section>
+    
+      
+    
+  </section>
+</article>
+
+      </div>
+
+      <div id="side" class="pr-1 bg-white">
+        <aside class="pr-3">
+          
+  
+    <div id="toc" class="Box Box--blue mb-3">
+      <b>留数定理までの複素関数論を計算で(&#43;特性関数の計算)</b><nav id="TableOfContents">
+  <ul>
+    <li><a href="#目次">目次</a></li>
+    <li><a href="#微分の定義">微分の定義</a></li>
+    <li><a href="#複素関数の微分とcauchy-riemannの方程式">複素関数の微分とCauchy-Riemannの方程式</a></li>
+    <li><a href="#cauchy-riemannの方程式の簡便な表示">Cauchy-Riemannの方程式の簡便な表示</a></li>
+    <li><a href="#cauchyの積分定理">Cauchyの積分定理</a>
+      <ul>
+        <li><a href="#cauchyの積分定理の適用例">Cauchyの積分定理の適用例</a></li>
+        <li><a href="#cauchyの積分定理を使った特性関数の計算確率論">Cauchyの積分定理を使った特性関数の計算(確率論)</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#標準正規分布の特性関数の計算">標準正規分布の特性関数の計算</a></li>
+                <li><a href="#gamma分布の特性関数の計算">Gamma分布の特性関数の計算</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#cauchyの積分公式">Cauchyの積分公式</a></li>
+    <li><a href="#留数定理">留数定理</a></li>
+    <li><a href="#参考資料">参考資料</a></li>
+  </ul>
+</nav></div>
+  
+
+  
+    <div>
+      
+    </div>
+  
+
+        </aside>
+      </div>
+
+      <div id="footer" class="pt-2 pb-3 bg-white text-center">
+         
+<footer id="footer" class="mt-auto text-center text-muted">
+  <div class="container">
+    
+  </div>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$']]
+      }
+    });
+  </script>
+</footer>
+
+
+
+
+
+      </div>
+    </div>
+
+    
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });</script>
+    
+  </body>
+</html>

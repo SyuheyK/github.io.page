@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>微分幾何 on Note置き場</title>
+    <link>https://syuheyk.github.io/tags/%E5%BE%AE%E5%88%86%E5%B9%BE%E4%BD%95/</link>
+    <description>Recent content in 微分幾何 on Note置き場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>jp</language>
+    <lastBuildDate>Sat, 01 Aug 2020 10:00:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://syuheyk.github.io/tags/%E5%BE%AE%E5%88%86%E5%B9%BE%E4%BD%95/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>微分幾何のまとめ</title>
+      <link>https://syuheyk.github.io/posts/200801DiffGeo1/</link>
+      <pubDate>Sat, 01 Aug 2020 10:00:00 +0900</pubDate>
+      
+      <guid>https://syuheyk.github.io/posts/200801DiffGeo1/</guid>
+      <description>細野忍「微分幾何」を元に， リーマン幾何学に関する内容をダイジェストでまとめます． 細かな設定について確認するというよりは，大まかな流れを簡潔にまとめて，なるべく計算で全体像がつかめるような内容にしています．
+可微分多様体と接空間の定義 内容，流れとキーワード
+ 可微分多様体の定義 多様体上の関数とその方向微分 方向微分のなす空間としての接空間 接空間に含まれる多様体 $M$ 上の接ベクトルのなすベクトル場 計量の公理と誘導計量，リーマン計量 リーマン計量による曲線の長さの表現 余接空間とテンソル場，特に共変ベクトル場と反変ベクトル場 捩率テンソルと接続，接続係数 共変微分とその適用例 リーマン接続 平行移動と測地線  可微分多様体の定義 全体をとおして，可微分多様体 $M$ を考える． 可微分多様体 $M$ とは， (位相)多様体 $M$ について， $U_\alpha\cap U_\beta\neq\phi$ をみたす任意の$2$つの局所座標近傍 $(U_\beta,\phi_\alpha)$ と $(U_\beta,\phi_\beta)$ について， 両者の間の座標を移す連続写像: $$\begin{align} \phi_{\beta\alpha}:=\phi_\beta\circ\phi^{-1}_\alpha:\phi_\alpha(U_\alpha\cap U_\beta)\rightarrow\phi_\beta(U_\alpha\cap U_\beta) \end{align}$$ が定められていて，その座標変換関数が具体的に $$\begin{align} u^1_\beta(p)&amp;=u^1_\beta(u^1_\alpha(p),u^2_\alpha(p))=u^1_\beta(u^1_\alpha,u^2_\alpha)(p), \\u^2_\beta(p)&amp;=u^2_\beta(u^1_\alpha(p),u^2_\alpha(p))=u^2_\beta(u^1_\alpha,u^2_\alpha)(p) \end{align}$$ と書かれ，$C^\infty$ 級関数となっているものである．
+多様体上の関数と接空間 Euclid空間 $\mathbb{E}^3$ 内の曲面上の点 $p$ における接平面が$2$ つのベクトルを基底に定められたことと同様に， 可微分多様体上での曲面およびその接平面を考える．そのために
+ 可微分多様体 $M$ 上の $C^\infty$ 級関数(曲面の方程式に対応) その関数の方向微分(接平面を構成する接ベクトルに対応) に関して考察し，可微分多様体での&amp;quot;接平面(=接空間)&amp;ldquo;を定める．  $M$ 上の関数 $f:M\rightarrow\mathbb{R}$ を考え，これが $C^\infty$ 級関数であることを，任意の局所座標近傍 $(U_\alpha,\phi_\alpha)$ について $$\begin{align} f\circ\phi_\alpha^{-1}:\phi_\alpha(U_\alpha)\rightarrow\mathbb{R} \end{align}$$ が $C^\infty$ 級関数であることと定める． この関数 $f$ を $u^1_\alpha\times u^2_\alpha$ 平面上の二変数関数と捉えると関数 $f$ の偏微分を $$\begin{align} \dfrac{\partial f}{\partial u^i_\alpha}(p):=\dfrac{\partial(f\circ\phi^{-1}_\alpha)(u^1_\alpha,u^2_\alpha)}{\partial u^i_\alpha}(p) \end{align}$$ 各変数$u^1_\alpha,u^2_\alpha$による偏微分の線形結合を用いれば，方向微分を $$\begin{align} \xi^1\dfrac{\partial f}{\partial u^1_\alpha}(p) + \xi^2\dfrac{\partial f}{\partial u^2_\alpha}(p) &amp;=\xi^1\dfrac{\partial(f\circ\phi^{-1}_\alpha)(u^1_\alpha,u^2_\alpha)}{\partial u^1_\alpha}(p) + \xi^2\dfrac{\partial(f\circ\phi^{-1}_\alpha)(u^1_\alpha,u^2_\alpha)}{\partial u^2_\alpha}(p) \end{align}$$ と定めることができるが，さらにこれを $$\begin{align} \xi^1\dfrac{\partial f}{\partial u^1_\alpha}(p) + \xi^2\dfrac{\partial f}{\partial u^2_\alpha}(p) &amp;= \left\{\xi^1\left(\dfrac{\partial}{\partial u^1_\alpha}\right)_p + \xi^2\left(\dfrac{\partial}{\partial u^2_\alpha}\right)_p\right\}f \end{align}$$ と変形し，関数 $f$ に作用する部分を方向微分と捉える． ここで $(\partial/\partial u^i_\alpha)_p$ は点 $p$ における偏微分を表す． この様に定義した方向微分を2つ考え $$\begin{align} \xi_p=\sum_{i=1}^2\xi^i\left(\dfrac{\partial}{\partial u^i_\alpha}\right)_p ,\;\eta_p=\sum_{i=1}^2\eta^i\left(\dfrac{\partial}{\partial u^i_\alpha}\right)_p \end{align}$$ と表し，線形和と定数倍を</description>
+    </item>
+    
+  </channel>
+</rss>

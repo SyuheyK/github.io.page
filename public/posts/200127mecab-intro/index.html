@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+  Mecabの使い方のまとめ &ndash; Note置き場
+
+    </title>
+    
+    
+    <meta name="description" property="og:description" content="インストール方法 以下を参照．
+設定ファイルの場所 環境によって異なるので注意．
+https://ichibariki.hatenablog.com/entry/2017/01/09/150542 https://obel.hatenablog.jp/entry/20170218/1487418388
+ユーザ辞書の追加 https://m0t0k1ch1st0ry.com/blog/2016/06/04/mecab/
+/usr/local/Cellar/mecab/0.996/libexec/mecab/mecab-dict-index \ -d /usr/local/lib/mecab/dic/mecab-ipadic-neologd \ -u /usr/local/lib/mecab/dic/userdic/user_dic.dic \ -f utf-8 \ -t utf-8 \ ./user_dic.csv オプションの説明は以下のとおり． |コマンド|内容| |:&amp;mdash;:|&amp;mdash;| |-d DIR:| システム辞書があるディレクトリ| |-u FILE:| FILE というユーザファイルを作成| |-f charset:| CSVの文字コード| |-t charset: |バイナリ辞書の文字コード|
+処理結果が reading ./tailoring_dic.csv ... 1 emitting double-array: 100% |###########################################| done! と， done! の文字が出力されればOK． その後， /usr/local/etc/macabrc に以下の1行を追加し，ユーザ辞書の設定が読まれる様にする． userdic = /usr/local/lib/mecab/dic/userdic/user_dic.dic 
+pythonからのユーザ辞書の利用方法 Taggarのオプションに -u でユーザ辞書のpathを追加する． import MeCab mecab = MeCab.Tagger (&amp;#39;-d /usr/local/lib/mecab/dic/mecab-ipadic-neologd -u /usr/local/lib/mecab/dic/userdic/user_dic.|">
+    
+
+    <meta name="apple-mobile-web-app-title" content="Note置き場">
+    
+    
+    
+    
+
+
+    <link rel="stylesheet" href="/assets/syntax.css">
+    <link rel="stylesheet" href="/assets/primer-build.css">
+    <link rel="stylesheet" href="/assets/style.css">
+  </head>
+
+
+  <body class="bg-gray">
+    <div id="holy" class="container-lg bg-white h-100">
+
+      <div id="header" class="px-1 bg-white">
+        <nav class="UnderlineNav UnderlineNav--right px-2">
+  <a class="UnderlineNav-actions muted-link h2" href="https://syuheyk.github.io">
+    Note置き場
+  </a>
+
+  
+  
+  <div class="UnderlineNav-body">
+    
+    
+    
+    <a class="UnderlineNav-item " href="/posts/">
+      
+      <span>Notes</span>
+    </a>
+    
+    
+    
+    
+    <a class="UnderlineNav-item " href="/tags/">
+      
+      <span>Tags</span>
+    </a>
+    
+    
+  </div>
+  
+</nav>
+
+      </div>
+
+      <div role="main" id="main" class="holy-main markdown-body px-4 bg-white">
+        
+
+<div class="Subhead">
+  <div class="Subhead-heading">
+    <div class="h1 mt-3 mb-1">Mecabの使い方のまとめ</div>
+  </div>
+  <div class="Subhead-description">
+    
+
+
+
+
+<a href='/tags/%E8%87%AA%E7%84%B6%E8%A8%80%E8%AA%9E%E5%87%A6%E7%90%86' class="muted-link">
+  <span class="Label Label--gray">自然言語処理</span>
+</a>
+
+
+
+    
+    <div class="float-md-right">
+      <span title="Lastmod: 2020-01-27. Published at: 2020-01-27.">
+        
+          Published: 2020-01-27
+        
+      </span>
+    </div>
+    
+  </div>
+</div>
+<article>
+  
+  <section class="pb-6 mb-3 border-bottom">
+    <h2 id="インストール方法">インストール方法</h2>
+<p>以下を参照．</p>
+<h2 id="設定ファイルの場所">設定ファイルの場所</h2>
+<p>環境によって異なるので注意．</p>
+<p><a href="https://ichibariki.hatenablog.com/entry/2017/01/09/150542">https://ichibariki.hatenablog.com/entry/2017/01/09/150542</a>
+<a href="https://obel.hatenablog.jp/entry/20170218/1487418388">https://obel.hatenablog.jp/entry/20170218/1487418388</a></p>
+<h2 id="ユーザ辞書の追加">ユーザ辞書の追加</h2>
+<p><a href="https://m0t0k1ch1st0ry.com/blog/2016/06/04/mecab/">https://m0t0k1ch1st0ry.com/blog/2016/06/04/mecab/</a></p>
+<p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">/usr/local/Cellar/mecab/0.996/libexec/mecab/mecab-dict-index <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>-d /usr/local/lib/mecab/dic/mecab-ipadic-neologd <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>-u /usr/local/lib/mecab/dic/userdic/user_dic.dic <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>-f utf-8 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>-t utf-8 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>./user_dic.csv</code></pre></div>
+オプションの説明は以下のとおり．
+|コマンド|内容|
+|:&mdash;:|&mdash;|
+|-d DIR:| システム辞書があるディレクトリ|
+|-u FILE:| FILE というユーザファイルを作成|
+|-f charset:| CSVの文字コード|
+|-t charset: |バイナリ辞書の文字コード|</p>
+<p>処理結果が
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">reading ./tailoring_dic.csv ... <span style="color:#ae81ff">1</span>
+emitting double-array: 100% |<span style="color:#75715e">###########################################|</span> 
+
+<span style="color:#66d9ef">done</span>!</code></pre></div>
+と， <code>done!</code> の文字が出力されればOK．
+その後， <code>/usr/local/etc/macabrc</code> に以下の1行を追加し，ユーザ辞書の設定が読まれる様にする．
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">userdic <span style="color:#f92672">=</span> /usr/local/lib/mecab/dic/userdic/user_dic.dic </code></pre></div></p>
+<h2 id="pythonからのユーザ辞書の利用方法">pythonからのユーザ辞書の利用方法</h2>
+<p>Taggarのオプションに <code>-u</code> でユーザ辞書のpathを追加する．
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">import MeCab
+mecab <span style="color:#f92672">=</span> MeCab.Tagger <span style="color:#f92672">(</span><span style="color:#e6db74">&#39;-d /usr/local/lib/mecab/dic/mecab-ipadic-neologd -u /usr/local/lib/mecab/dic/userdic/user_dic.dic&#39;</span><span style="color:#f92672">)</span></code></pre></div></p>
+
+  </section>
+
+  <section>
+    
+      
+    
+  </section>
+</article>
+
+      </div>
+
+      <div id="side" class="pr-1 bg-white">
+        <aside class="pr-3">
+          
+  
+    <div id="toc" class="Box Box--blue mb-3">
+      <b>Mecabの使い方のまとめ</b><nav id="TableOfContents">
+  <ul>
+    <li><a href="#インストール方法">インストール方法</a></li>
+    <li><a href="#設定ファイルの場所">設定ファイルの場所</a></li>
+    <li><a href="#ユーザ辞書の追加">ユーザ辞書の追加</a></li>
+    <li><a href="#pythonからのユーザ辞書の利用方法">pythonからのユーザ辞書の利用方法</a></li>
+  </ul>
+</nav></div>
+  
+
+  
+    <div>
+      
+    </div>
+  
+
+        </aside>
+      </div>
+
+      <div id="footer" class="pt-2 pb-3 bg-white text-center">
+         
+<footer id="footer" class="mt-auto text-center text-muted">
+  <div class="container">
+    
+  </div>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$']]
+      }
+    });
+  </script>
+</footer>
+
+
+
+
+
+      </div>
+    </div>
+
+    
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });</script>
+    
+  </body>
+</html>
