@@ -1,6 +1,5 @@
 ---
-title: "macの設定"
-tags: ["mac"]
+title: "macの設定おぼえがき"
 date: 2020-01-14T10:00:00+09:00
 draft: false
 ---

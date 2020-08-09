@@ -6,7 +6,6 @@ draft: false
 ---
 テスト投稿がてら，LaTeX表現ができるか確認
 
-
 <div>
   $$
   \begin{bmatrix}

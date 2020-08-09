@@ -1,6 +1,6 @@
 ---
 title: "Mecabの使い方のまとめ"
-tags: ["自然言語処理"]
+tags: ["NLP"]
 date: 2020-01-27T10:00:00+09:00
 draft: false
 ---

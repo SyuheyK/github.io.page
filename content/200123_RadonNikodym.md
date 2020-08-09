@@ -1,6 +1,6 @@
 ---
 title: "Radon-Nikodymの定理のまとめ"
-tags: ["測度論", "確率論"]
+tags: ["測度論"]
 date: 2020-01-23T10:00:00+09:00
 draft: false
 ---
