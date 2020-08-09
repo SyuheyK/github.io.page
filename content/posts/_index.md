@@ -1,6 +1,0 @@
----
-title: "Notes"
-type: "top"
-menu: "main"
-weight: 1
----
