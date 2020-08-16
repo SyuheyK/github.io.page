@@ -1,28 +1,22 @@
 ---
-title: "微分幾何のまとめ"
+title: "微分幾何のまとめ 1"
 tags: ["微分幾何"]
 date: 2020-08-01T10:00:00+09:00
 draft: false
 ---
 [細野忍「微分幾何」](http://www.asakura.co.jp/books/isbn/978-4-254-11849-0/)を元に，
 リーマン幾何学に関する内容をダイジェストでまとめます．
-細かな設定について確認するというよりは，大まかな流れを簡潔にまとめて簡単に全体像がつかめるような内容にしています．
 
-## 可微分多様体と接空間の定義
-内容，流れとキーワード
-- 可微分多様体の定義
-- 多様体上の関数とその方向微分
-- 方向微分のなす空間としての**接空間**
-- 接空間に含まれる多様体 $M$ 上の接ベクトルのなす**ベクトル場**
-- 計量の公理と誘導計量，**リーマン計量**
-- リーマン計量による曲線の長さの表現
-- 余接空間と**テンソル場**，特に共変ベクトル場と反変ベクトル場
-- 捩率テンソルと**接続**，接続係数
-- **共変微分**とその適用例
-- **リーマン接続**
-- 平行移動と測地線
+### 内容
+- [可微分多様体の定義](#001)
+- [多様体上の関数と**接空間**](#002)
+- [局所座標近傍間の貼り合わせと**ベクトル場**](#003)
+- [**リーマン計量**](#004)
+- [リーマン計量の**テンソル場**としての特徴づけ](#005)
 
-#### 可微分多様体の定義
+<a id="markdown-001" name="001"></a>
+
+### 可微分多様体の定義
 全体をとおして，可微分多様体 $M$ を考える．
 可微分多様体 $M$ とは，
 (位相)多様体 $M$ について，
@@ -38,7 +32,9 @@ $U_\alpha\cap U_\beta\neq\phi$ をみたす任意の$2$つの局所座標近傍 
 {{< /equation >}}
 と書かれ，$C^\infty$ 級関数となっているものである．
 
-#### 多様体上の関数と接空間
+<a id="markdown-002" name="002"></a>
+
+### 多様体上の関数と接空間
 Euclid空間 $\mathbb{E}^3$ 内の曲面上の点 $p$ における接平面が$2$ つのベクトルを基底に定められたことと同様に，
 可微分多様体上での曲面およびその接平面を考える．そのために
 - 可微分多様体 $M$ 上の $C^\infty$ 級関数(曲面の方程式に対応)
@@ -83,7 +79,9 @@ $M$ 上の関数 $f:M\rightarrow\mathbb{R}$ を考え，これが $C^\infty$ 級
 
 このベクトル空間のことを **接空間** と呼び $T_pM$ と表す．
 
-#### 局所座標近傍間の貼り合わせとベクトル場
+<a id="markdown-003" name="003"></a>
+
+### 局所座標近傍間の貼り合わせとベクトル場
 上記のとおり定義された接空間は局所座標近傍によらず定義されていることを示すことができる．
 まず，$(U_\alpha,\phi_\alpha)$ 上で $C^\infty$ 級である関数 $f$ は，
 $U_\alpha\cap U_\beta\neq\phi$ である $\phi_\beta(U_\alpha\cap U_\beta)$ 上で
@@ -124,12 +122,74 @@ $U_\alpha\cap U_\beta\neq\phi$ である $\phi_\beta(U_\alpha\cap U_\beta)$ 上�
 {{< /equation>}}
 と書く．$M$ 上の各点 $p$ に対して $\xi_p$ が決まるので，$\xi$ を**ベクトル場** と呼ぶ．
 
-<!-- 
-## リーマン計量とテンソル場
+<a id="markdown-004" name="004"></a>
 
-## 接続と曲率
+### リーマン計量
+$M$ の各点 $p$ における接空間 $T_pM$ 上の正定値対称二次形式な内積として，任意のベクトル場 $\xi,\eta$ に対して以下の条件をみたす $g(\xi,\eta)$ を考える．
 
-## 平行移動と測地線
--->
+1. $g(\xi,\eta) = g(\eta,\xi)$
+1. $g(a\xi+b\eta,\zeta)=ag(\xi,\zeta)+bg(\eta,\zeta)$
+1. $\xi\neq0\Rightarrow g(\xi,\xi)>0$
+
+ただし，$\xi,\eta,\zeta$ は任意のベクトル場，$a,b\in\mathbb{R}$ とする．
+このような性質をもつ $g$ を **計量** と呼ぶ．
+
+座標近傍を $(U_\alpha,\phi_\alpha)$，$T_pM$ の基底を $(\partial/\partial u_\alpha^1)_p,(\partial/\partial u_\alpha^2)_p$ とするとき，計量を
+{{< equation >}} 
+  g^{(\alpha)}_{ij}(p)=g^{(\alpha)}\left(\left(\dfrac{\partial}{\partial u^i_\alpha}\right)_p,\left(\dfrac{\partial}{\partial u^j_\alpha}\right)_p\right)
+{{< /equation >}} 
+と定めると，$T_pM$ 上の正定値内積となる．
+
+これを $p$ の関数と見たときにすべての座標近傍に対して $C^\infty$ 級となるとき，$g$ を $M$ の $C^\infty$ 級リーマン計量，あるいは単に **リーマン計量** と呼ぶ．またリーマン計量が与えられた可微分多様体のことを **リーマン多様体** と呼ぶ．
+
+また，$p\in U_\alpha\cap U_\beta(\neq\phi)$ に対して
+{{< equation >}}
+  g_{ij}^{(\alpha)}(p)=\sum_{k,l=1}^2\dfrac{\partial u^k_\beta}{\partial u^i_\alpha}\dfrac{\partial u^l_\beta}{\partial u^j_\alpha}g_{kl}^{(\beta)}
+{{< /equation >}}
+を示すことができる(問2.5)．
+各座標近傍 $(U_\alpha,\phi_\alpha)$ で正定値対称行列 $g_{ij}^{(\alpha)}$ を定め，
+$\left(g_{ij}^{(\alpha)}\right)_{\alpha\in A}$ がこの式にしたがってリーマン計量が $C^\infty$ 級であるという条件が $M$ 全体に張り合っていれば，
+上記内積の公理を満たすリーマン計量 $g$ が得られる．
+
+
+<a id="markdown-005" name="005"></a>
+
+### リーマン計量のテンソル場としての特徴づけ
+上記で定義したリーマン計量という値をテンソル場として特徴づける．
+
+接空間 $T_pM$ の自然な基底として，
+{{< equation >}}
+  \left(\dfrac{\partial }{\partial u^1}\right)_p, \left(\dfrac{\partial }{\partial u^2}\right)_p
+{{< /equation >}}
+をとることができる．この基底の双対基底として各 $i,j=1,2$ に対して
+{{< equation >}}
+  (du^i)_p\left(\dfrac{\partial }{\partial u^j}\right)_p=\delta_j^i=
+  \begin{cases}
+      1, & \text{if}\ i=j \\
+      0, & \text{otherwise}
+  \end{cases}
+{{< /equation >}}
+となるように定められた $(du^i)_p$ で生成された $T_pM$ の双対空間は余接空間と呼ばれ，$T^\ast_pM$ と表される．
+
+$T_pM$ の基底 $(\partial/\partial u^i)_p,i=1,2$ と双対基底 $(du^j)_p,j=1,2$ を用いて，
+$(r,s)$ テンソル $t_p$ を
+
+{{< equation >}}
+  t_p = \sum_{i_1,...,i_r,j_1,...,j_s}t^{i_1,...,i_r}\;_{j_1,...,j_s}(p)\left(\dfrac{\partial}{\partial u^{i_1}}\right)_p\otimes\cdots\otimes\left(\dfrac{\partial}{\partial u^{i_r}}\right)_p\otimes(du^{j_1})_p\otimes\cdots\otimes(du^{j_s})_p
+{{< /equation >}}
+と定める．ただし，$p\in U_\alpha\cap U_\beta(\neq\phi)$ とする．
+
+点 $p$ が $M$ 全体をわたって動くとき，$t$ を $(r,s)$ テンソル場と呼ぶ．
+
+リーマン計量は $(0,2)$ テンソル場
+{{< equation >}}
+  ds^2=\sum_{i,j=1}^2g_{ij}du^i\otimes du^j
+{{< /equation >}}
+によって，無限小線分の長さを意味するものとして表すことができる．
+これを簡略して
+{{< equation >}}
+  ds^2=\sum_{i,j=1}^2g_{ij}du^idu^j
+{{< /equation >}}
+とも書くが，意味することは $(0,2)$ テンソル場である．
 
 [^1]: 上記では詳細になるため省略しているが，局所座標近傍における座標変換関数 $\phi$ は $D\subset\mathbb{R}$ への同相写像と定めている．
