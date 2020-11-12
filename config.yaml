@@ -40,3 +40,5 @@ markup:
   tableOfContents:
     endLevel: 6
     startLevel: 2
+
+ignoreErrors: "error-remote-getjson"

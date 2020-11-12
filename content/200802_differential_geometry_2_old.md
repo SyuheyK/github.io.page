@@ -1,8 +1,8 @@
 ---
-title: "微分幾何のまとめ 2"
+title: "微分幾何のまとめ 2 old"
 tags: ["微分幾何"]
 date: 2020-08-13T10:00:00+09:00
-draft: false
+draft: true
 ---
 [細野忍「微分幾何」](http://www.asakura.co.jp/books/isbn/978-4-254-11849-0/)を元に，
 リーマン幾何学に関する内容をダイジェストでまとめます．
@@ -19,72 +19,22 @@ draft: false
 <a id="markdown-001" name="001"></a>
 
 ### 共変微分と接続，捩率テンソル
-$M$ 上の点 $p$ における接空間の基底の方向微分を考えたい．
-そのために，接空間の基底をインデックス $j$ で，微分したい方向をインデックス $i$ で表し，
-$M$ 上の2点 $p+\Delta p,p$ の基底の差分を微分したい方向へ分解する．
-すると，$i$ と $j$ の対応を基底成分の和を取ることで
+各点で関数の方向微分は独立に考えられるので，それに基づいて定義された接空間も同様に独立である．
+そこで２点間の接空間の基底の差分を
 {{< equation >}}
   \left(\dfrac{\partial}{\partial u^j}\right)_{p+\Delta p} - \left(\dfrac{\partial}{\partial u^j}\right)_p
   &= \sum_{i,k=1}^2\Delta u^i\Gamma_{i\ j}^{\ k}\left(\dfrac{\partial}{\partial u^k}\right)_p
 {{< /equation >}}
-と決まることにする．
+と決めることにする．
 多様体内の各点によって基底が変化する様子を $C^\infty$ 上の関数 $\Gamma_{i\ j}^{\ k}$ で表現していると捉えることができる．
 
-各点で関数の方向微分は独立に考えられるので，それに基づいて定義された接空間も同様に独立であるから，
-$\Delta u^i\rightarrow0$ としたとき，別の座標とは独立に $p+\Delta p$ における量は $p$ へ収束する．
-このことから，上式の右辺各項について，
-$\Delta u^i\rightarrow0$ としたときの極限を $\nabla_{\partial/\partial u^i}$ または簡単に $\nabla_i$ と書き，
-接空間の基底 $\partial/\partial u^j$ の $\partial/\partial u^i$ 方向への共変微分を
+この式の右辺各項について，$\Delta u^i\rightarrow0$ としたときの極限を $\nabla_{\partial/\partial u^i}$ と書き，
 {{< equation >}}
-  \nabla_i\left(\dfrac{\partial}{\partial u^j}\right)_p
-    &= \lim_{\Delta u^i\rightarrow0}\dfrac{1}{\Delta u^i}\left\{\sum_{k=1}^2\Delta u^i\Gamma_{i\ j}^{\ k}\left(\dfrac{\partial}{\partial u^k}\right)_p\right\}
-    = \sum_{k=1}^2\Gamma_{i\ j}^{\ k}\left(\dfrac{\partial}{\partial u^k}\right)_p
+  \nabla_{\partial/\partial u^i}\left(\dfrac{\partial}{\partial u^j}\right)_p
+    &= \sum_{k=1}^2\Gamma_{i\ j}^{\ k}\left(\dfrac{\partial}{\partial u^k}\right)_p
 {{< /equation >}}
 と定め，$T_{p+\Delta p}M$ と $T_pM$ の基底の関係を表す式と読む．
 
-一般のベクトル場 $\xi_p=\sum_{j=1}^2\xi^j(\partial/\partial u^j)_p$ の共変微分を考えると，
-2点 $p+\Delta p$ と $p$ の差分は
-{{< equation >}}
-  \xi_{p+\Delta p}-\xi_{p}
-  &=\sum_{j=1}^2\xi^j(p+\Delta p)\left(\dfrac{\partial}{\partial u^j}\right)_{p+\Delta p}
-  - \sum_{j=1}^2\xi^j(p)\left(\dfrac{\partial}{\partial u^j}\right)_{p}\\
-  &=\sum_{j=1}^2\left\{\xi^j(p+\Delta p)\left(\dfrac{\partial}{\partial u^j}\right)_{p+\Delta p}
-  - \xi^j(p)\left(\dfrac{\partial}{\partial u^j}\right)_{p}\right\}
-{{< /equation >}}
-となるから，右辺の各項について
-{{< equation >}}
-  \xi^j(p&+\Delta p)\left(\dfrac{\partial}{\partial u^j}\right)_{p+\Delta p} - \xi^j(p)\left(\dfrac{\partial}{\partial u^j}\right)_{p}\\
-  &= \xi^j(p+\Delta p)\left\{\left(\dfrac{\partial}{\partial u^j}\right)_{p+\Delta p}-\left(\dfrac{\partial}{\partial u^j}\right)_{p}\right\} + \left\{\xi^j(p+\Delta p)-\xi^j(p)\right\}\left(\dfrac{\partial}{\partial u^j}\right)_{p}
-{{< /equation >}}
-と展開し，これに対して $i$ 方向への微分を考えると，
-{{< equation >}}
-  \lim_{\Delta u^i\rightarrow0}&\dfrac{1}{\Delta u^i}\left\{\xi^j(p+\Delta p)\left(\dfrac{\partial}{\partial u^j}\right)_{p+\Delta p} - \xi^j(p)\left(\dfrac{\partial}{\partial u^j}\right)_{p}\right\}\\
-  &= \left(\lim_{\Delta u^i\rightarrow0}\xi^j(p+\Delta p)\right)\sum_{k=1}^2\Gamma_{i\ j}^{\ k}\left(\dfrac{\partial}{\partial u^k}\right)_p + \lim_{\Delta u^i\rightarrow0}\dfrac{\xi^j(p+\Delta p)-\xi^j(p)}{\Delta u^i}\left(\dfrac{\partial}{\partial u^j}\right)_{p}\\
-  &= \xi^j\sum_{k=1}^2\Gamma_{i\ j}^{\ k}\left(\dfrac{\partial}{\partial u^k}\right)_p + \dfrac{\partial \xi^j}{\partial u^i}\left(\dfrac{\partial}{\partial u^j}\right)_{p}
-{{< /equation >}}
-となる．したがって，これをまとめたベクトル場 $\xi_p$ の共変微分は
-{{< equation >}}
-  \nabla_i\xi
-  &= \sum_{j=1}^2\left\{\dfrac{\partial \xi^j}{\partial u^i}+\sum_{k=1}^2\Gamma_{i\ k}^{\ j}\xi^k\right\}\left(\dfrac{\partial}{\partial u^j}\right)_{p}
-{{< /equation >}}
-と計算することができる．
-
-ここで，右辺の基底に関する係数を
-{{< equation >}}
-  \nabla_i\xi^j=\dfrac{\partial \xi^j}{\partial u^i}+\sum_{k=1}^2\Gamma_{i\ k}^{\ j}\xi^k
-{{< /equation >}}
-とかき，共変微分係数または単に共変微分と呼ぶ．
-この記号を用いれば，
-{{< equation >}}
-  \nabla_i\xi
-  &= \sum_{j=1}^2\nabla_i\xi^j\left(\dfrac{\partial}{\partial u^j}\right)_{p}
-{{< /equation >}}
-と表すことができる．
-
-#### 接続係数
-
-
-<!--
 また，一般のベクトル場 $\xi_p=\sum_{j=1}^2\xi^j(\partial/\partial u^j)_p$ の2点 $p$ と $p+\Delta p$ の関係を
 成分 $\xi^j$ が変化する部分と基底 $(\partial/\partial u^j)_p$ が変化する部分に分けて
 {{< equation >}}
@@ -239,7 +189,7 @@ $(2,1)$ テンソル場 $t^{ij}\ _k$の共変微分は
 {{</equation>}}
 が成り立つ．
 
--->
+
 <a id="markdown-002" name="002"></a>
 
 ### リーマン接続
