@@ -129,7 +129,30 @@ $\ref{metric_eq4-1}+\ref{metric_eq4-2}-\ref{metric_eq4-3}$ を計算し，左右
 
 ### 共変微分
 
+#### ベクトル場に対する共変微分
+ベクトル場 $\boldsymbol{A}(\boldsymbol{x})$ の位置変動を調べてみよう．
+$\boldsymbol{A}(\boldsymbol{x}+d\boldsymbol{x})$ は考えている空間の次元からはみ出てしまうため，一般のベクトルについても差分ベクトルを
+{{<equation>}}
+d\boldsymbol{A}(\boldsymbol{x}) = \boldsymbol{A}(\boldsymbol{x}+d\boldsymbol{x}) - \boldsymbol{A}(\boldsymbol{x})
+{{</equation>}}
+とするのは問題がある．
+そのため，基底の平行移動と同様に $\boldsymbol{A}(\boldsymbol{x}+d\boldsymbol{x})$ を平行移動した $\boldsymbol{A}_ {||}(\boldsymbol{x}+d\boldsymbol{x}\rightarrow\boldsymbol{x})$ を考える．これは次のように展開できる．
+{{<equation>}}
+\boldsymbol{A}_ {||}(\boldsymbol{x}+d\boldsymbol{x}\rightarrow\boldsymbol{x})
+&= A_ {||}^m(\boldsymbol{x}+d\boldsymbol{x}\rightarrow\boldsymbol{x})\boldsymbol{e}_ {||m}(\boldsymbol{x}+d\boldsymbol{x}\rightarrow\boldsymbol{x})\\
+&= \left(A^m(\boldsymbol{x}) + dA^m(\boldsymbol{x})\right)\left(\boldsymbol{e}_ m(\boldsymbol{x}) + \delta\boldsymbol{e}_ m(\boldsymbol{x})\right)\\
+&= A^m(\boldsymbol{x})\boldsymbol{e}_ m(\boldsymbol{x}) + dA^m(\boldsymbol{x})\boldsymbol{e}_ m(\boldsymbol{x}) + A^m(\boldsymbol{x})\delta\boldsymbol{e}_ m(\boldsymbol{x})\\
+&= \boldsymbol{A}(\boldsymbol{x}) + dA^m(\boldsymbol{x})\boldsymbol{e}_ m(\boldsymbol{x}) + A^m(\boldsymbol{x})\delta\boldsymbol{e}_ m(\boldsymbol{x}).
+{{</equation>}}
+これから，$\delta\boldsymbol{A}(\boldsymbol{X})$ を次式で定義し，$\boldsymbol{A}(\boldsymbol{X})$ の完全微分と呼ぶ．
+{{<equation>}}
+\delta\boldsymbol{A}(\boldsymbol{X})
+&= \boldsymbol{A}_ {||}(\boldsymbol{x}+d\boldsymbol{x}\rightarrow\boldsymbol{x}) - \boldsymbol{A}(\boldsymbol{x})\\
+&= dA^m(\boldsymbol{x})\boldsymbol{e}_ m(\boldsymbol{x}) + A^m(\boldsymbol{x})\delta\boldsymbol{e}_ m(\boldsymbol{x})\\
+&= dA^m(\boldsymbol{x})\boldsymbol{e}_ m(\boldsymbol{x}) + dx^k\Gamma_ {k\ m}^{\ n}A^m(\boldsymbol{x})\boldsymbol{e}_ m(\boldsymbol{x}).
+{{</equation>}}
 
+平行移動の記号は使わなくなるので，以降は引数の $(\boldsymbol{x})$ を省略して記載する．
 
 <!--
 <a id="markdown-003" name="003"></a>
