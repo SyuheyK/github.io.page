@@ -7,9 +7,9 @@ draft: false
 
 <a id="markdown-001" name="001"></a>
 
-## [Poisson過程とその性質](https://en.wikipedia.org/wiki/Poisson_point_process)
+## Poisson過程とその性質
 $(\tau_i)_{i\ge1}$ をそれぞれがパラメータ $\lambda$ の指数分布に従う独立な確率変数のベクトルとし，$T_n=\sum_i^n\tau_i$とする．
-次式で定められる確率過程 $(N_t,t\ge0)$ を，強度 $\lambda$ のPoisson過程と呼ぶ．
+次式で定められる確率過程 $(N_t,t\ge0)$ を，強度 $\lambda$ の[Poisson過程](https://en.wikipedia.org/wiki/Poisson_point_process)と呼ぶ．
 {{<equation>}}
 N_t = \sum_{n\ge1}1_{t\ge T_n}(t).
 {{</equation>}}
@@ -86,9 +86,64 @@ $[t_ 1,t_ 1'],...,[t_ n,t_ n']$ を重複のない区間の集まりとする．
 Poissonランダム測度 $M$ はPoisson過程の``微分''と見ることもできる．
 Poisson過程のサンプルパス $t\mapsto N_t(\omega)$ は単調増加な階段関数であったから，その超関数の意味での微分は正値の測度となる:
 {{<equation>}}
-\dfrac{d}{dt}N_t(\omega)=M(\omega,[0,t])\text{ where }M=\sum_{i\ge1}\delta_{T_i(\omega)}
+\dfrac{d}{dt}N_t(\omega)=M(\omega,[0,t])=\sum_{i\ge1}\delta_{T_i(\omega)}([0,t])
 {{</equation>}}
-ここで，$\delta_A$ はDirac測度である．
+ここで，$\delta_A(x)$ は[Dirac測度](https://en.wikipedia.org/wiki/Dirac_measure)である．
 
+### Poissonランダム測度の定義
+上記のPoissonランダム測度の定義をより一般的にフォーマルな設定で述べると以下のようになる
+$(\Omega,\mathcal{F},P)$ を確率空間とし，$E\subset\mathbb{R}^d$，$\mu$ を $(E,\mathcal{E})$ 上の正値Radon測度とする．
+$E$ 上の強度測度 $\mu$ の Poissonランダム測度とは，整数値ランダム測度:
+{{<equation>}}
+M:\Omega\times\mathcal{E}&\rightarrow\mathbb{N}\\
+(\omega,A)&\mapsto M(\omega,A)
+{{</equation>}}
+で次をみたすものである．
+1. ほとんどすべての $\omega\in\Omega$ に対して，$M(\omega,\cdot)$ は$E$ 上の整数値Radon測度である．すなわち，任意の有限な $A\subset E$ に対して，$M(A)(<\infty)$ は整数値確率変数である．
+1. 任意の $A\subset E$ に対して，$M(\cdot,A)=M(A)$ はパラメータ $\mu(A)$ のPoisson分布に従う確率変数である:
+{{<equation>}}
+\forall k\in\mathbb{N}, P(M(A)=k)=e^{-\mu(A)}\dfrac{\mu(A)^k}{k!}
+{{</equation>}}
+1. 互いに排反な可測集合 $A_1,...,A_n\in\mathcal{E}$ に対して，$M(A_1),...,M(A_n)$ は互いに独立である．
+
+Poissonランダム測度の構成については以下の命題が成り立つ．
+
+**命題3**
+任意の $E\subset\mathbb{R}^d$ 上のRadon測度 $\mu$ に対して，$E$ 上の強度 $\mu$ のPoissonランダム測度 $M$ が存在する．
+
+### 数え上げ測度としての意味付け
+$E$上の任意のPoissonランダム測度は，$E$ 内のランダムな点列の[数え上げ測度](https://en.wikipedia.org/wiki/Counting_measure)として表現することができる[^2]．
+すなわち $E$ 内の点列 $\{X_n(\omega),n\ge1\}$ が存在して，
+{{<equation>}}
+\forall A\in\mathcal{E}, M(\omega,A)=\sum_{n\ge1}1_{A}(X_n(\omega))=\sum_{n\ge1}\delta_{X_n(\omega)}(A)
+{{</equation>}}
+と表すことができる．またはDirac測度を用いて，単に
+{{<equation>}}
+M=\sum_{n\ge1}\delta_{X_n}
+{{</equation>}}
+と書ける．
+また $M(A)$ は任意のコンパクト集合 $A\subset E$ に対して有限でなければならない.
+そのため点列 $(X_n)_ {n\ge1}$ は，任意のコンパクトな $A\subset E$ に対して $A\cap${ $X_n,n\ge1$} が確率 $1$ で有限にならなければならない．
+したがって，点列 $(X_n)_ {n\ge1}$ は $E$ 内において，$1$ 点に2つ以上重複してはいけないことがこの条件から導かれる．
+
+### Poissonランダム測度から得られるジャンプ過程
+上記の数え上げ測度としての意味から，Poissonランダム測度からジャンプ過程を作ることができる．
+$E=[0,T]\times\mathbb{R}^d\backslash\text{{0}}$ 上のPoissonランダム測度 $M$ を考えると，直積集合のそれぞれの要素を $(T_n,Y_n)\in E$ とすることで，
+{{<equation>}}
+M=\sum_{n\ge1}\delta_{(T_n,Y_n)}
+{{</equation>}}
+と数え上げ測度として表現することができる．
+
+各要素はそれぞれ，$T_n$ はジャンプの観測時刻を，$Y_n$ はジャンプ時点で明らかになる情報を表す．
+確率空間 $(\Omega,\mathcal{F},P)$ にフィルトレーション $\mathcal{F}_t$ を付けたとき，以下の性質をみたす $M$ を $\mathcal{F}_t$-適合なPoissonランダム測度と呼ぶ．
+- $(T_n)_{n\ge1}$ は $\mathcal{F}_t$-適合なランダム時刻である．
+- $Y_n$ は $\mathcal{F}_{T_n}$-適合な確率変数である．
+
+Standard machineを使って単関数を使って近似を行うことで，$\omega$ ごとに $E=[0,T]\times\mathbb{R}^d\backslash${0} 上の測度 $M(\omega,\cdot)$ に関する積分を定めることができる．この結果に対して，時点に関する積分区間を $t\in[0,T]$ までとして積分すると，
+{{<equation>}}
+X_t=\int_0^t\int_{\mathbb{R}^d\backslash\text{{0}}}f(s,y)M(ds\times dy)=\sum_{n,T_n\in[0,t]}f(T_n,Y_n)
+{{</equation>}}
+となり，$\mathcal{F}_t$-適合な確率過程が得られる．
 
 [^1]: Poisson分布の性質 2.と3.で非連続点が確率 $1$ で存在すると言っているのに，ここでは確率 $1$ で連続と言っているのは，非連続点の測度が $0$ となるためである．
+[^2]: 実は命題3の証明で詳細は示されることである．
