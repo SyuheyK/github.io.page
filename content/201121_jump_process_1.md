@@ -1,5 +1,5 @@
 ---
-title: "Jump過程① -Poisson過程と点過程-"
+title: "Jump過程① - Poisson過程と点過程 -"
 tags: ["確率論"]
 date: 2020-11-21T10:00:00+09:00
 draft: false
@@ -40,11 +40,11 @@ E[e^{iuN_t}]=\exp\left\{ \lambda t(e^{iu}-1) \right\}, \forall u\in\mathbb{R}
 
 ### Poisson過程に関する命題
 
-**命題1**
+**命題1**  
 $(N_t^1)_ {t\ge0}$が強度 $\lambda_1$，$(N_t^2)_ {t\ge0}$が強度 $\lambda_2$の，互いに独立なPoisson過程であるとき，
 $(N_t^1+N_t^2)_ {t\ge0}$は強度 $\lambda_1+\lambda_2$のPoisson過程である．
 
-**命題2**
+**命題2**  
 ジャンプの発生時刻をあらわす確率変数の列 $(T_n,n\ge1)$ が，確率 $p\in[0,1]$ で発生し，確率 $1-p$ で発生しないとし，発生した $(T_n,n\ge1)$ を並べ直した確率変数の列 $(T_n',n\ge1)$ を使って新たな確率過程 $X_t$ を
 {{<equation>}}
 X_t=\sum_{n\ge1}1_{t\ge T_t'}(t)
@@ -108,7 +108,7 @@ M:\Omega\times\mathcal{E}&\rightarrow\mathbb{N}\\
 
 Poissonランダム測度の構成については以下の命題が成り立つ．
 
-**命題3**
+**命題3**  
 任意の $E\subset\mathbb{R}^d$ 上のRadon測度 $\mu$ に対して，$E$ 上の強度 $\mu$ のPoissonランダム測度 $M$ が存在する．
 
 ### 数え上げ測度としての意味付け
@@ -139,11 +139,46 @@ M=\sum_{n\ge1}\delta_{(T_n,Y_n)}
 - $(T_n)_{n\ge1}$ は $\mathcal{F}_t$-適合なランダム時刻である．
 - $Y_n$ は $\mathcal{F}_{T_n}$-適合な確率変数である．
 
-Standard machineを使って単関数を使って近似を行うことで，$\omega$ ごとに $E=[0,T]\times\mathbb{R}^d\backslash${0} 上の測度 $M(\omega,\cdot)$ に関する積分を定めることができる．この結果に対して，時点に関する積分区間を $t\in[0,T]$ までとして積分すると，
+Standard machineを使った単関数近似により，$\omega$ ごとに $E=[0,T]\times\mathbb{R}^d\backslash${0} 上の測度 $M(\omega,\cdot)$ に関する積分を定めることができる．この結果に対して，時点に関する積分区間を $t\in[0,T]$ までとして積分すると，
 {{<equation>}}
 X_t=\int_0^t\int_{\mathbb{R}^d\backslash\text{{0}}}f(s,y)M(ds\times dy)=\sum_{n,T_n\in[0,t]}f(T_n,Y_n)
 {{</equation>}}
 となり，$\mathcal{F}_t$-適合な確率過程が得られる．
 
+## Mark付き点過程とJump過程
+上記のPoissonランダム測度を構成する要素 $T_n,Y_n$ の値域を $[0,T]\times E\subset\mathbb{R}^d$ とし，数え上げ測度として
+{{<equation>}}
+M(\omega,\cdot)=\sum_{n\ge1}\delta_{T_n(\omega),Y_n(\omega)}(\cdot)
+{{</equation>}}
+と表現したものによって，より複雑な依存関係をもった整数値ランダム測度を定めることができる．
+ここで，$M$ を $E$上の整数値ランダム測度と呼び，$(T_n,Y_n)$ をmark付き点過程と呼ぶ．
+
+**定義1**  
+フィルター付き確率空間 $(\Omega,\mathcal{F},(\mathcal{F}_t),P)$ 上の列 $(T_n,Y_n)$ が以下をみたすとき，mark付き点過程と呼ぶ．
+- $(T_n)_{n\ge1}$ は単調増加で $\mathcal{F}_t$-適合なランダム時刻で $n\rightarrow\infty$ としたとき，確率 $1$ で $T_n\rightarrow\infty$ となる．
+- $(Y_n)_{n\ge1}$ は $E$ に値をとる確率変数列である．
+- 各 $n$ について，$Y_n$ は $\mathcal{F}_{T_n}$-可測である．
+
+[定義の補足]  
+- 条件:$T_n\rightarrow\infty$ により,区間 $[0,T]$ 内でランダム時刻 $T_n$ により発生する事象の数が有限となることが保証される．
+- 任意の $\omega\in\Omega$ に対して，$M(\omega,\cdot)$ は $[0,T]\times E$ 上の数え上げ測度となる．
+- $\mu$ が拡散測度[^3]であり，任意の $(t,y)\in[0,T]\times E$ に対して $\mu(t,y)=0$ となる場合，任意の点は確率 $1$ で高々1回しか発生しない: $M(t,y)=0\text{ or }1$．
+
+[Poissonランダム測度との関係]  
+- Mark付き点過程はPoissonランダム測度がもつ独立性やPoisson分布に従うという性質を必ずしももつわけではない．
+したがって，$A_1\cap A_2=\phi$ であっても $M([0,t]\times A_1)$ と $M([0,t]\times A_2)$ は独立ではないこともあるし，$M(A)$ はPoisson分布以外の分布に従うことがある．
+- Poissonランダム測度は数え上げ測度で表現されるが，必ずしも$T_n\rightarrow\infty$ となるわけではない．したがって，すべてのPoissonランダム測度がmark付き点過程で表現されるわけではなく，$\mu([0,T]\times\mathbb{R}^d)<\infty$ であるものである．
+
+<!--### Jump過程-->
+
+<!--
+## その他のPoisson過程
+
+### 補正Poisson過程
+
+### 複合Poisson過程
+-->
+
 [^1]: Poisson分布の性質 2.と3.で非連続点が確率 $1$ で存在すると言っているのに，ここでは確率 $1$ で連続と言っているのは，非連続点の測度が $0$ となるためである．
 [^2]: 実は命題3の証明で詳細は示されることである．
+[^3]: diffuse measure．任意の点に対して測度 $0$ を割り当てる測度のこと．例えばLebesgue測度が典型的であり，集合に含まれる任意の点に対しては測度 $0$ を割り当てるが，区間に対しては非零の測度を割り当てる．反対にDirac測度は，ある特定の点に対しては測度 $1$ を割り当てるが，それ以外に対しては測度 $0$ を割り当てる．
