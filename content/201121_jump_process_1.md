@@ -1,5 +1,5 @@
 ---
-title: "Jump過程① - Poisson過程と点過程 -"
+title: "ジャンプ過程① - Poisson過程と点過程 -"
 tags: ["確率論"]
 date: 2020-11-21T10:00:00+09:00
 draft: false
@@ -18,7 +18,7 @@ N_t = \sum_{n\ge1}1_{t\ge T_n}(t).
 ### Poisson過程の性質
 1. 任意の $t>0$ に対して，$N_t$ は確率 $1$ で有限である．
 1. 任意のシナリオ $\omega$ に対して，サンプルパス $t\rightarrow N_t(\omega)$ は区分的に定数であり，ジャンプ幅 $1$ で逓増する．
-1. サンプルパス $t\rightarrow N_t$ は右連続左極限である．
+1. サンプルパス $t\rightarrow N_t$ は[右連続左極限](https://en.wikipedia.org/wiki/C%C3%A0dl%C3%A0g)である．
 1. 任意の $t$ に対して確率 $1$ で $N_{t-}=N_t$ である[^1]．
 1. $(N_t)$ は確率収束の意味で連続である:
 {{<equation>}}
@@ -52,13 +52,13 @@ X_t=\sum_{n\ge1}1_{t\ge T_t'}(t)
 と定めると，$X_t$ もまたPoisson過程となる．
 
 ## ランダム測度と点過程
-上記のPoisson過程の定義に基づけば，ランダムな時刻$T_1,T_2,...$ は $N$ がジャンプする時刻を表し，$N_t$ は区間 $[0,t]$ におけるジャンプの回数を表すことから，$(N_t)_{t\ge0}$ 計数過程と呼ばれる．
+上記のPoisson過程の定義に基づけば，ランダムな時刻$T_1,T_2,...$ は $N$ がジャンプする時刻を表し，$N_t$ は区間 $[0,t]$ におけるジャンプの回数を表すことから，$(N_t)_{t\ge0}$ は計数過程と呼ばれる．
 {{<equation>}}
 N_t=\sharp\left\{i\ge1,T_i\in[0,t]\right\}
 {{</equation>}}
 同様に $t>s$ のとき
 {{<equation>}}
-N_t-N_s=\sharp\left\{i\ge1,T_i\in(s,t]\right\}
+N_t-N_s=\sharp\left\{i\ge1,T_i\in(s,t]\right\}.
 {{</equation>}}
 
 ジャンプ時刻 $T_1,T_2,...$ は区間 $[0,\infty)$ 上のランダムな発生時点を表し，$N_t$ はその発生時点を区間 $[0,t]$ でカウントしている形になる．
@@ -67,10 +67,10 @@ N_t-N_s=\sharp\left\{i\ge1,T_i\in(s,t]\right\}
 {{<equation>}}
 M(\omega,A)=\sharp\left\{i\ge1,T_i(\omega)\in A\right\}.
 {{</equation>}}
-このような定義にすると，$M(\omega,\cdot)$ は正整数値の測度で有限な可測集合 $A$ に対しては確率 $1$ で $M(A)$ が有限となる．
+このような定義にすると，$M(\omega,\cdot)$ は正整数値の測度で，有限な可測集合 $A$ に対しては確率 $1$ で $M(A)<\infty$ となる．
 
 $M(\omega,\cdot)$ を測度として捉えると，$\omega$ に依存することから，この測度 $M$ はランダム測度と呼ばれる．
-また，上記の $M$ はPoisson過程 $N$ から導かれたランダム測度であるため，Poissonランダム測度と呼ばれる．
+また上記の $M$ はPoisson過程 $N$ から導かれたランダム測度であるため，Poissonランダム測度と呼ばれる．
 Poisson過程ではない計数過程からもランダム測度を定めることができ，それらはPoissonランダム測度とは異なるものとなる．
 
 Poissonランダム測度を使ってPoisson過程を書き直すと以下のとおりとなる:
@@ -83,7 +83,7 @@ $[t_ 1,t_ 1'],...,[t_ n,t_ n']$ を重複のない区間の集まりとする．
 1. $2$ つの重複のない区間 $j\neq k$ について，$M([t_ j,t_ j'])$ と $M([t_ k,t_ k'])$ は独立な確率変数である．
 1. 一般に $A$ 任意の可測集合 $A$ に対して，$M(A)$ はパラメータ $\lambda|A|$ のPoisson分布に従う．ただし，$|A|=\int_Adx$ は $A$ のLebesgue測度とする．
 
-Poissonランダム測度 $M$ はPoisson過程の``微分''と見ることもできる．
+Poissonランダム測度 $M$ はPoisson過程の"微分"と見ることもできる．
 Poisson過程のサンプルパス $t\mapsto N_t(\omega)$ は単調増加な階段関数であったから，その超関数の意味での微分は正値の測度となる:
 {{<equation>}}
 \dfrac{d}{dt}N_t(\omega)=M(\omega,[0,t])=\sum_{i\ge1}\delta_{T_i(\omega)}([0,t])
@@ -92,7 +92,7 @@ Poisson過程のサンプルパス $t\mapsto N_t(\omega)$ は単調増加な階�
 
 ### Poissonランダム測度の定義
 上記のPoissonランダム測度の定義をより一般的にフォーマルな設定で述べると以下のようになる
-$(\Omega,\mathcal{F},P)$ を確率空間とし，$E\subset\mathbb{R}^d$，$\mu$ を $(E,\mathcal{E})$ 上の正値Radon測度とする．
+$(\Omega,\mathcal{F},P)$ を確率空間とし，$E\subset\mathbb{R}^d$，$\mu$ を $(E,\mathcal{E})$ 上の正値Radon測度[^4]とする．
 $E$ 上の強度測度 $\mu$ の Poissonランダム測度とは，整数値ランダム測度:
 {{<equation>}}
 M:\Omega\times\mathcal{E}&\rightarrow\mathbb{N}\\
@@ -145,7 +145,7 @@ X_t=\int_0^t\int_{\mathbb{R}^d\backslash\text{{0}}}f(s,y)M(ds\times dy)=\sum_{n,
 {{</equation>}}
 となり，$\mathcal{F}_t$-適合な確率過程が得られる．
 
-## Mark付き点過程とJump過程
+## Mark付き点過程とジャンプ過程
 上記のPoissonランダム測度を構成する要素 $T_n,Y_n$ の値域を $[0,T]\times E\subset\mathbb{R}^d$ とし，数え上げ測度として
 {{<equation>}}
 M(\omega,\cdot)=\sum_{n\ge1}\delta_{T_n(\omega),Y_n(\omega)}(\cdot)
@@ -169,7 +169,21 @@ M(\omega,\cdot)=\sum_{n\ge1}\delta_{T_n(\omega),Y_n(\omega)}(\cdot)
 したがって，$A_1\cap A_2=\phi$ であっても $M([0,t]\times A_1)$ と $M([0,t]\times A_2)$ は独立ではないこともあるし，$M(A)$ はPoisson分布以外の分布に従うことがある．
 - Poissonランダム測度は数え上げ測度で表現されるが，必ずしも$T_n\rightarrow\infty$ となるわけではない．したがって，すべてのPoissonランダム測度がmark付き点過程で表現されるわけではなく，$\mu([0,T]\times\mathbb{R}^d)<\infty$ であるものである．
 
-<!--### Jump過程-->
+### Mark付き点過程→ジャンプ過程
+Mark付き点過程から以下の手順でジャンプ過程を作ることができる．
+$f:[0,T]\times E\rightarrow\mathbb{R}^d$ で $\int_{[0,T]\times E}|f(t,y)|\mu(dt,dy)<\infty$ をみたすものを用いて，
+ランダム測度 $M$ に関する積分を
+{{<equation>}}
+M(f)=\int_{[0,T]\times E}f(t,y)M(dt,dy)=\sum_{n\ge1}f(T_n,Y_n)
+{{</equation>}}
+と定めることができる．これをもとに，時点に関する積分区間を $[0,t]$ とすることで，ジャンプ過程
+{{<equation>}}
+X_t(f)=\int_{[0,t]\times E\backslash\text{{0}}}f(t,y)M(dt,dy)=\sum_{n,T_n\in[0,t]}f(T_n,Y_n)
+{{</equation>}}
+を得ることができる．
+$(X_t(f))_{t\in[0,T]}$ は $\mathcal{F}_t$-適合でcadlag(右連続左極限)なサンプルパスをもつ確率過程であり，時点 $(T_n)_{n\ge1}$ でジャンプが発生し，ジャンプ幅は $f(T_n,Y_n)$ で定めることができる．
+
+### ジャンプ過程→Mark付き点過程
 
 <!--
 ## その他のPoisson過程
@@ -180,5 +194,6 @@ M(\omega,\cdot)=\sum_{n\ge1}\delta_{T_n(\omega),Y_n(\omega)}(\cdot)
 -->
 
 [^1]: Poisson分布の性質 2.と3.で非連続点が確率 $1$ で存在すると言っているのに，ここでは確率 $1$ で連続と言っているのは，非連続点の測度が $0$ となるためである．
+[^4]: 測度空間 $(E,\mathcal{B})$ 上のRadon測度 $\mu$ とは，任意のコンパクト集合 $B\in\mathcal{B}$ に対して$\mu(B)<\infty$ となるものである．ここでコンパクト集合は単に有界閉集合とする．
 [^2]: 実は命題3の証明で詳細は示されることである．
 [^3]: diffuse measure．任意の点に対して測度 $0$ を割り当てる測度のこと．例えばLebesgue測度が典型的であり，集合に含まれる任意の点に対しては測度 $0$ を割り当てるが，区間に対しては非零の測度を割り当てる．反対にDirac測度は，ある特定の点に対しては測度 $1$ を割り当てるが，それ以外に対しては測度 $0$ を割り当てる．
